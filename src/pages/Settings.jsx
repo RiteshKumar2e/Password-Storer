@@ -50,31 +50,30 @@ const Settings = () => {
             <p className="text-slate-500 font-medium">Configure your SecureVault preferences.</p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {sections.map((section, i) => (
               <motion.div 
                 key={section.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:border-primary-500 transition-all group relative overflow-hidden"
+                className="bg-white p-6 md:p-8 rounded-[4rem] border border-slate-100 shadow-sm hover:shadow-md transition-all group flex items-center justify-between"
               >
-                <div className="flex items-center justify-between gap-6">
-                  <div className="flex items-center gap-6">
-                    <div className={`p-4 ${section.color} rounded-2xl group-hover:scale-110 transition-transform`}>
-                      {section.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-black mb-1 tracking-tight">{section.title}</h3>
-                      <p className="text-slate-500 text-sm font-medium">{section.desc}</p>
-                    </div>
+                <div className="flex items-center gap-6">
+                  <div className={`p-5 ${section.color} rounded-[2rem] group-hover:scale-105 transition-transform`}>
+                    {section.icon}
                   </div>
-                  <div className="flex items-center gap-4">
-                    <span className="px-4 py-1.5 bg-slate-900 text-white rounded-full text-[10px] font-black uppercase tracking-widest">
-                      Coming Soon
-                    </span>
-                    <ChevronRight size={20} className="text-slate-300 group-hover:text-primary-600 group-hover:translate-x-1 transition-all" />
+                  <div>
+                    <h3 className="text-2xl font-black mb-1 tracking-tight">{section.title}</h3>
+                    <p className="text-slate-400 font-medium text-sm max-w-md">{section.desc}</p>
                   </div>
+                </div>
+                
+                <div className="flex items-center gap-6">
+                  <span className="px-6 py-2.5 bg-slate-900 text-white rounded-full text-[10px] font-black uppercase tracking-widest">
+                    Coming Soon
+                  </span>
+                  <ChevronRight size={20} className="text-slate-200" />
                 </div>
               </motion.div>
             ))}
