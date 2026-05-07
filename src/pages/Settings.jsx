@@ -3,7 +3,8 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import { 
   Shield, Bell, Palette, Lock, Eye, 
-  ChevronRight, Sparkles, Monitor, Smartphone
+  ChevronRight, Sparkles, Monitor, Smartphone,
+  Database, Globe, Users, MessageCircle
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -30,10 +31,40 @@ const Settings = () => {
       color: 'bg-pink-50 text-pink-600'
     },
     {
+      title: 'Import & Export',
+      desc: 'Move your data securely between different password managers.',
+      icon: <Database size={24} />,
+      color: 'bg-orange-50 text-orange-600'
+    },
+    {
+      title: 'Browser Extension',
+      desc: 'Integrate SecureVault directly into your web browser for autofill.',
+      icon: <Globe size={24} />,
+      color: 'bg-sky-50 text-sky-600'
+    },
+    {
+      title: 'Emergency Access',
+      desc: 'Designate trusted contacts who can access your vault if needed.',
+      icon: <Users size={24} />,
+      color: 'bg-red-50 text-red-600'
+    },
+    {
       title: 'Privacy',
-      desc: 'Control what data is visible and manage local storage.',
+      desc: 'Control what data is visible and manage local activity logs.',
       icon: <Eye size={24} />,
       color: 'bg-emerald-50 text-emerald-600'
+    },
+    {
+      title: 'Two-Factor Auth',
+      desc: 'Add an extra layer of security with mobile authenticator apps.',
+      icon: <Smartphone size={24} />,
+      color: 'bg-yellow-50 text-yellow-600'
+    },
+    {
+      title: 'Help & Support',
+      desc: 'Access documentation, tutorials, and contact our support team.',
+      icon: <MessageCircle size={24} />,
+      color: 'bg-slate-50 text-slate-600'
     }
   ];
 
