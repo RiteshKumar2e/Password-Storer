@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
   const register = (masterPassword) => {
     const userId = 'user_' + Math.random().toString(36).substr(2, 9);
     const masterHash = hashPassword(masterPassword);
-    const newUser = { id: userId, masterHash };
+    const newUser = { id: userId, masterHash, username: 'New User' };
     localStorage.setItem('securevault_user', JSON.stringify(newUser));
     // Initialize empty vault
     localStorage.setItem('securevault_vault', '');
@@ -28,6 +28,13 @@ export const AuthProvider = ({ children }) => {
     setMasterKey(masterPassword);
     toast.success('Account created successfully!');
     return true;
+  };
+
+  const updateUsername = (newUsername) => {
+    const updatedUser = { ...user, username: newUsername };
+    localStorage.setItem('securevault_user', JSON.stringify(updatedUser));
+    setUser(updatedUser);
+    toast.success('Username updated!');
   };
 
   const login = (masterPassword) => {
@@ -56,7 +63,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, masterKey, login, register, logout, isInitialized }}>
+    <AuthContext.Provider value={{ user, masterKey, login, register, logout, updateUsername, isInitialized }}>
       {children}
     </AuthContext.Provider>
   );

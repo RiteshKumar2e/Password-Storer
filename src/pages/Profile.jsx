@@ -10,9 +10,19 @@ import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
 
 const Profile = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, updateUsername } = useAuth();
   const { passwords } = useVault();
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
+  const [newUsername, setNewUsername] = React.useState(user?.username || '');
+
+  const handleUpdateProfile = (e) => {
+    e.preventDefault();
+    if (newUsername.trim()) {
+      updateUsername(newUsername.trim());
+      setIsEditModalOpen(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex text-slate-900">
@@ -25,22 +35,36 @@ const Profile = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-12"
+            className="mb-12 flex justify-between items-end"
           >
-            <h1 className="text-4xl font-black mb-2 tracking-tight">Account Profile</h1>
-            <p className="text-slate-500 font-medium">Manage your secure local vault and identity.</p>
+            <div>
+              <h1 className="text-4xl font-black mb-2 tracking-tight">Account Profile</h1>
+              <p className="text-slate-500 font-medium">Manage your secure local vault and identity.</p>
+            </div>
+            <button 
+              onClick={() => setIsEditModalOpen(true)}
+              className="px-6 py-3 bg-white border border-slate-200 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-sm active:scale-[0.98] flex items-center gap-2"
+            >
+              <Edit2 size={18} className="text-primary-600" />
+              Edit Profile
+            </button>
           </motion.div>
 
           <div className="space-y-10">
             {/* Profile Header */}
             <div className="bg-white rounded-[3rem] p-10 border border-slate-100 shadow-sm flex flex-col md:flex-row items-center gap-10">
-              <div className="w-32 h-32 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl shadow-slate-900/20">
-                 <User className="w-14 h-14" />
+              <div className="relative group cursor-pointer" onClick={() => setIsEditModalOpen(true)}>
+                <div className="w-32 h-32 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl shadow-slate-900/20 group-hover:scale-105 transition-transform">
+                   <User className="w-14 h-14" />
+                </div>
+                <div className="absolute inset-0 bg-primary-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <Edit2 className="text-white" size={24} />
+                </div>
               </div>
               <div className="text-center md:text-left flex-1">
-                <h2 className="text-3xl font-black mb-2 tracking-tight">Local Vault Identity</h2>
+                <h2 className="text-3xl font-black mb-2 tracking-tight">{user?.username || 'Local Vault Identity'}</h2>
                 <p className="font-mono text-slate-400 text-sm mb-6 tracking-tight overflow-hidden text-ellipsis whitespace-nowrap max-w-xs mx-auto md:mx-0">
-                  {user?.id}
+                  ID: {user?.id}
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                   <span className="px-5 py-2 bg-green-50 text-green-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-green-100">
@@ -143,6 +167,58 @@ const Profile = () => {
           </div>
         </div>
       </main>
+      <AnimatePresence>
+        {isEditModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsEditModalOpen(false)}
+              className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm"
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative bg-white w-full max-w-md rounded-[3rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100 p-10"
+            >
+              <h3 className="text-2xl font-black mb-2 tracking-tight">Edit Profile</h3>
+              <p className="text-slate-500 font-medium mb-8 text-sm">Update your vault display name.</p>
+              
+              <form onSubmit={handleUpdateProfile} className="space-y-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Username</label>
+                  <input 
+                    type="text"
+                    value={newUsername}
+                    onChange={(e) => setNewUsername(e.target.value)}
+                    className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/5 outline-none transition-all font-bold text-slate-900"
+                    placeholder="Enter new username"
+                    autoFocus
+                  />
+                </div>
+
+                <div className="flex gap-4 pt-4">
+                  <button 
+                    type="button"
+                    onClick={() => setIsEditModalOpen(false)}
+                    className="flex-1 py-4 bg-slate-100 text-slate-600 rounded-2xl font-black hover:bg-slate-200 transition-all"
+                  >
+                    Cancel
+                  </button>
+                  <button 
+                    type="submit"
+                    className="flex-1 py-4 bg-slate-900 text-white rounded-2xl font-black hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
