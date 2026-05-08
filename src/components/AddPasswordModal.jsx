@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Globe, User, Lock, FileText, Zap, Key } from 'lucide-react';
+import { X, Globe, User, Lock, FileText, Zap, Key, PlusCircle, Paperclip } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useVault } from '../context/VaultContext';
 import { generateStrongPassword } from '../utils/crypto';
@@ -68,20 +68,30 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative bg-white w-full max-w-xl border-2 border-ink shadow-[8px_8px_0px_0px_#121212] overflow-hidden"
+          className="relative w-full max-w-lg bg-paper border-2 border-ink shadow-[8px_8px_0px_0px_#121212] overflow-hidden"
         >
-          <div className="p-8 relative">
-            <div className="absolute top-0 left-0 w-full h-1 bg-neo-yellow border-b-2 border-ink"></div>
-            <div className="flex justify-between items-start mb-8">
-              <div>
-                <h2 className="text-2xl font-black tracking-tighter text-ink uppercase italic">{editingPassword ? 'Amend Ledger Entry' : 'New Archive Record'}</h2>
-                <p className="text-ink/50 font-serif italic text-base mt-1">"Recording cryptographic data into local storage."</p>
+          {/* Decorative Corner Fold & Paperclip */}
+          <div className="absolute top-0 right-0 w-12 h-12 bg-white border-l-2 border-b-2 border-ink z-20 shadow-[-2px_2px_0px_rgba(0,0,0,0.05)]" />
+          <div className="absolute -top-2 -left-2 rotate-[-15deg] opacity-50 z-20">
+            <Paperclip size={24} className="text-ink" />
+          </div>
+
+          <div className="p-8 relative bg-[url('/grid.png')] bg-repeat">
+            <div className="flex justify-between items-start mb-8 border-b-4 border-ink pb-4">
+              <div className="flex items-center gap-4">
+                <div className="bg-neo-yellow p-3 border-2 border-ink shadow-[2px_2px_0px_#121212]">
+                  <PlusCircle className="text-ink w-6 h-6 stroke-[2.5px]" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-black tracking-tighter text-ink uppercase italic">{editingPassword ? 'Amend Manuscript' : 'New Manuscript Entry'}</h2>
+                  <p className="text-ink/50 font-serif italic text-xs mt-0.5">Archive Registration v1.4</p>
+                </div>
               </div>
               <button 
                 onClick={onClose}
-                className="p-3 bg-white border-2 border-ink hover:bg-neo-red hover:text-white transition-all shadow-[2px_2px_0px_#121212] active:shadow-none active:translate-x-[1px] active:translate-y-[1px]"
+                className="p-2 border-2 border-ink hover:bg-neo-red transition-all"
               >
-                <X size={20} className="stroke-[2.5px]" />
+                <X size={16} className="stroke-[2.5px]" />
               </button>
             </div>
 

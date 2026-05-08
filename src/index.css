@@ -9,10 +9,15 @@
   --color-neo-blue: #4D96FF;
   --color-neo-orange: #FF9F43;
 
+  --paper: #FCF8ED;
+  --ink: #121212;
+  --paper-dark: #F2EAD3;
+  --shadow-brutalist: 4px 4px 0px var(--ink);
+  --border-brutalist: 2px solid var(--ink);
+
   --font-sans: 'Outfit', system-ui, sans-serif;
   --font-serif: 'EB Garamond', serif;
 
-  --shadow-brutalist: 3px 3px 0px 0px #121212;
   --shadow-brutalist-sm: 2px 2px 0px 0px #121212;
   --shadow-brutalist-lg: 5px 5px 0px 0px #121212;
 }
@@ -26,13 +31,24 @@
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-image: 
-    linear-gradient(rgba(18, 18, 18, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 18, 18, 0.03) 1px, transparent 1px);
-  background-size: 15px 15px;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1000;
 }
 
 @layer base {

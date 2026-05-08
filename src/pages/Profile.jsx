@@ -28,18 +28,29 @@ const Profile = () => {
     <div className="min-h-screen bg-paper flex text-ink font-sans">
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       
-      <main className="flex-1 flex flex-col min-w-0 border-l-2 border-ink">
+      <main className="flex-1 flex flex-col min-w-0 bg-paper relative">
         <Navbar setIsSidebarOpen={setIsSidebarOpen} searchTerm="" setSearchTerm={() => {}} />
         
-        <div className="p-6 md:p-10 max-w-4xl mx-auto w-full">
+        {/* Book Gutter Shadow */}
+        <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/5 to-transparent pointer-events-none z-10" />
+
+        <div className="p-6 md:p-10 max-w-4xl mx-auto w-full relative">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4"
+            className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-4 border-ink pb-8 relative"
           >
+            {/* Confidential Stamp */}
+            <div className="absolute -top-4 -right-4 border-4 border-neo-red px-4 py-2 rotate-[15deg] opacity-20 pointer-events-none hidden md:block">
+              <span className="text-2xl font-black text-neo-red uppercase tracking-widest">Confidential</span>
+            </div>
+
             <div>
-              <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">Dossier: {user?.username || 'Archivist'}</h1>
-              <p className="text-ink/60 font-serif italic text-lg">"Personal identifiers and vault integrity metrics."</p>
+              <div className="flex items-center gap-3 mb-1">
+                <span className="px-2 py-0.5 bg-ink text-white text-[10px] font-black uppercase tracking-widest">Archivist ID: {user?.id?.slice(0,8) || '0000'}</span>
+                <h1 className="text-4xl font-black tracking-tighter uppercase italic">Service Record</h1>
+              </div>
+              <p className="text-ink/60 font-serif italic text-lg leading-none">"Official profile identifiers and vault integrity metrics."</p>
             </div>
             <button 
               onClick={() => setIsEditModalOpen(true)}

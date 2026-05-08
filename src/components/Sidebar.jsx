@@ -35,14 +35,17 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         )}
       </AnimatePresence>
 
-      <aside className={`fixed inset-y-0 left-0 w-64 bg-paper border-r-2 border-ink z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out flex flex-col`}>
+      <aside className={`fixed inset-y-0 left-0 w-64 bg-paper-dark border-r-2 border-ink z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out flex flex-col book-spine shadow-[4px_0_15px_rgba(0,0,0,0.1)]`}>
         <div className="p-6">
-          <div className="flex items-center justify-between mb-10">
-            <div className="flex items-center gap-2">
-              <div className="bg-neo-yellow p-2 border-2 border-ink shadow-[2px_2px_0px_#121212]">
-                <Shield className="text-ink w-5 h-5 stroke-[2.5px]" />
+          <div className="flex items-center justify-between mb-8 border-b-2 border-ink/10 pb-6">
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <div className="bg-neo-yellow p-1.5 border-2 border-ink shadow-[2px_2px_0px_#121212]">
+                  <Shield className="text-ink w-4 h-4 stroke-[2.5px]" />
+                </div>
+                <span className="text-lg font-black tracking-tighter text-ink uppercase italic">SecureVault</span>
               </div>
-              <span className="text-xl font-black tracking-tighter text-ink uppercase">SecureVault</span>
+              <span className="text-[8px] font-black uppercase tracking-[0.4em] text-ink/40 ml-0.5">Library Registry v2.0</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="lg:hidden text-ink hover:scale-110 transition-transform">
               <X size={24} className="stroke-[2.5px]" />

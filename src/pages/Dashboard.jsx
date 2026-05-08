@@ -42,25 +42,35 @@ const Dashboard = () => {
       {/* Sidebar */}
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      <main className="flex-1 flex flex-col min-w-0 border-l-2 border-ink">
+      <main className="flex-1 flex flex-col min-w-0 bg-paper relative">
         {/* Navbar */}
         <Navbar setIsSidebarOpen={setIsSidebarOpen} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        
+        {/* Book Gutter Shadow (Desktop) */}
+        <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/5 to-transparent pointer-events-none z-10" />
 
         {/* Dashboard Content */}
-        <div className="p-6 md:p-10 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+        <div className="p-6 md:p-10 max-w-7xl mx-auto w-full relative">
+          <div className="mb-10 flex justify-between items-end border-b-2 border-ink pb-4">
             <div>
-              <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">The Archives</h1>
-              <p className="text-ink/60 font-serif italic text-lg">"A complete record of your cryptographic identities."</p>
+              <div className="flex items-center gap-3 mb-1">
+                <span className="px-2 py-0.5 bg-ink text-white text-[10px] font-black uppercase tracking-widest">Section 01</span>
+                <h1 className="text-4xl font-black tracking-tighter uppercase italic">The Archives</h1>
+              </div>
+              <p className="text-ink/60 font-serif italic text-lg leading-none">"A digital record of your cryptographic manuscripts."</p>
             </div>
+            <div className="hidden md:block text-right">
+              <span className="text-[10px] font-black uppercase tracking-widest text-ink/30 block">Volume: 2024.IV</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-ink/30 block">Folio: {passwords.length} Entries</span>
+            </div>
+          </div>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-neo-yellow text-ink border-2 border-ink font-black uppercase tracking-wider hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-neo-yellow text-ink border-2 border-ink font-black uppercase tracking-wider hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] mb-10"
             >
               <PlusCircle size={20} className="stroke-[2.5px]" />
               New Entry
             </button>
-          </div>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
