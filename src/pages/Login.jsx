@@ -23,7 +23,7 @@ const Login = () => {
     <div className="min-h-screen bg-paper flex items-center justify-center p-6 auth-container relative">
       <Link 
         to="/" 
-        className="absolute top-8 left-8 flex items-center gap-2 px-5 py-2 bg-white border-2 border-ink font-black text-ink uppercase text-[10px] tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[3px_3px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] z-50 group"
+        className="absolute top-4 left-4 sm:top-8 sm:left-8 flex items-center gap-2 px-4 sm:px-5 py-2 bg-white border-2 border-ink font-black text-ink uppercase text-[10px] tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[3px_3px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] z-50 group"
       >
         <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform stroke-[2.5px]" />
         Home
@@ -32,7 +32,7 @@ const Login = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-sm w-full bg-white border-2 border-ink p-10 shadow-[8px_8px_0px_0px_#121212] relative auth-card"
+        className="max-w-sm w-full bg-white border-2 border-ink p-6 sm:p-10 shadow-[8px_8px_0px_0px_#121212] relative auth-card"
       >
         <div className="flex justify-center mb-10">
           <div className="bg-neo-yellow p-4 border-2 border-ink shadow-[3px_3px_0px_#121212]">

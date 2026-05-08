@@ -58,8 +58,8 @@ const Landing = () => {
           transition={{ duration: 1, delay: 0.4 }}
           className="mt-32 relative mx-auto max-w-5xl brutalist-card animate-float p-1 bg-ink"
         >
-          <div className="bg-paper aspect-video p-12 flex items-center justify-center border-4 border-ink">
-             <div className="w-full h-full bg-white border-4 border-ink flex flex-col items-center justify-center p-8 relative">
+          <div className="bg-paper aspect-video p-4 md:p-12 flex items-center justify-center border-4 border-ink">
+             <div className="w-full h-full bg-white border-4 border-ink flex flex-col items-center justify-center p-4 md:p-8 relative">
                 <div className="absolute top-4 left-4 flex gap-2">
                   <div className="w-4 h-4 rounded-full border-2 border-ink bg-neo-red"></div>
                   <div className="w-4 h-4 rounded-full border-2 border-ink bg-neo-yellow"></div>

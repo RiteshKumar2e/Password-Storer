@@ -51,11 +51,11 @@ const Dashboard = () => {
 
         {/* Dashboard Content */}
         <div className="p-6 md:p-10 max-w-7xl mx-auto w-full relative">
-          <div className="mb-10 flex justify-between items-end border-b-2 border-ink pb-4">
+          <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end border-b-2 border-ink pb-4 gap-4">
             <div>
-              <div className="flex items-center gap-3 mb-1">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-1">
                 <span className="px-2 py-0.5 bg-ink text-white text-[10px] font-black uppercase tracking-widest">Section 01</span>
-                <h1 className="text-4xl font-black tracking-tighter uppercase italic">Password Vault</h1>
+                <h1 className="text-3xl md:text-4xl font-black tracking-tighter uppercase italic break-words">Password Vault</h1>
               </div>
               <p className="text-ink/60 font-serif italic text-lg leading-none">"Manage and secure your digital credentials safely."</p>
             </div>
@@ -66,7 +66,7 @@ const Dashboard = () => {
           </div>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-neo-yellow text-ink border-2 border-ink font-black uppercase tracking-wider hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] mb-10"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-neo-yellow text-ink border-2 border-ink font-black uppercase tracking-wider hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] mb-10 w-full md:w-auto"
             >
               <PlusCircle size={20} className="stroke-[2.5px]" />
               Add Password
@@ -93,8 +93,8 @@ const Dashboard = () => {
 
           {/* List Section */}
           <div className="space-y-6">
-            <div className="flex items-center justify-between px-2 mb-8 border-b-2 border-ink pb-4">
-              <h2 className="text-2xl font-black tracking-tighter uppercase">Password List</h2>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-2 mb-8 border-b-2 border-ink pb-4 gap-4">
+              <h2 className="text-xl md:text-2xl font-black tracking-tighter uppercase">Password List</h2>
               <div className="px-4 py-1 bg-neo-yellow border-2 border-ink font-black text-ink uppercase text-xs tracking-widest shadow-[2px_2px_0px_#121212]">
                 {filteredPasswords.length} Records
               </div>

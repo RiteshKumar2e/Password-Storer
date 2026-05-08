@@ -46,15 +46,15 @@ const Profile = () => {
             </div>
 
             <div>
-              <div className="flex items-center gap-3 mb-1">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-1">
                 <span className="px-2 py-0.5 bg-ink text-white text-[10px] font-black uppercase tracking-widest">User ID: {user?.id?.slice(0,8) || '0000'}</span>
-                <h1 className="text-4xl font-black tracking-tighter uppercase italic">Account Profile</h1>
+                <h1 className="text-3xl md:text-4xl font-black tracking-tighter uppercase italic break-words">Account Profile</h1>
               </div>
               <p className="text-ink/60 font-serif italic text-lg leading-none">"View and manage your account details and security metrics."</p>
             </div>
             <button 
               onClick={() => setIsEditModalOpen(true)}
-              className="px-6 py-3 bg-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] flex items-center gap-2"
+              className="px-6 py-3 bg-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] flex items-center justify-center gap-2 w-full md:w-auto mt-4 md:mt-0"
             >
               <Pencil size={16} className="text-ink stroke-[2.5px]" />
               Edit Profile
@@ -88,7 +88,7 @@ const Profile = () => {
               </div>
               <button 
                 onClick={logout}
-                className="px-6 py-3 bg-white border-2 border-ink text-ink font-black uppercase text-xs tracking-widest hover:bg-neo-red hover:text-white transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
+                className="px-6 py-3 bg-white border-2 border-ink text-ink font-black uppercase text-xs tracking-widest hover:bg-neo-red hover:text-white transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] w-full md:w-auto mt-6 md:mt-0"
               >
                 Logout
               </button>
