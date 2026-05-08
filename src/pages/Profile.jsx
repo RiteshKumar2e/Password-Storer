@@ -25,131 +25,131 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex text-slate-900">
+    <div className="min-h-screen bg-paper flex text-ink font-sans">
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       
-      <main className="flex-1 flex flex-col min-w-0">
+      <main className="flex-1 flex flex-col min-w-0 border-l-2 border-ink">
         <Navbar setIsSidebarOpen={setIsSidebarOpen} searchTerm="" setSearchTerm={() => {}} />
         
-        <div className="p-8 md:p-12 max-w-4xl mx-auto w-full">
+        <div className="p-6 md:p-10 max-w-4xl mx-auto w-full">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-12 flex justify-between items-end"
+            className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4"
           >
             <div>
-              <h1 className="text-4xl font-black mb-2 tracking-tight">Account Profile</h1>
-              <p className="text-slate-500 font-medium">Manage your secure local vault and identity.</p>
+              <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">Dossier: {user?.username || 'Archivist'}</h1>
+              <p className="text-ink/60 font-serif italic text-lg">"Personal identifiers and vault integrity metrics."</p>
             </div>
             <button 
               onClick={() => setIsEditModalOpen(true)}
-              className="px-6 py-3 bg-white border border-slate-200 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-sm active:scale-[0.98] flex items-center gap-2"
+              className="px-6 py-3 bg-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] flex items-center gap-2"
             >
-              <Pencil size={18} className="text-primary-600" />
-              Edit Profile
+              <Pencil size={16} className="text-ink stroke-[2.5px]" />
+              Modify Identity
             </button>
           </motion.div>
 
           <div className="space-y-10">
             {/* Profile Header */}
-            <div className="bg-white rounded-[3rem] p-10 border border-slate-100 shadow-sm flex flex-col md:flex-row items-center gap-10">
+            <div className="bg-white border-2 border-ink p-8 shadow-[6px_6px_0px_0px_#121212] flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 opacity-5 pointer-events-none p-8">
+                <Shield size={100} />
+              </div>
               <div className="relative group cursor-pointer" onClick={() => setIsEditModalOpen(true)}>
-                <div className="w-32 h-32 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl shadow-slate-900/20 group-hover:scale-105 transition-transform">
-                   <User className="w-14 h-14" />
-                </div>
-                <div className="absolute inset-0 bg-primary-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Pencil className="text-white" size={24} />
+                <div className="w-24 h-24 bg-neo-yellow border-2 border-ink flex items-center justify-center shadow-[3px_3px_0px_#121212] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] transition-all">
+                   <User className="w-12 h-12 text-ink stroke-[2.5px]" />
                 </div>
               </div>
               <div className="text-center md:text-left flex-1">
-                <h2 className="text-3xl font-black mb-2 tracking-tight">{user?.username || 'Local Vault Identity'}</h2>
-                <p className="font-mono text-slate-400 text-sm mb-6 tracking-tight overflow-hidden text-ellipsis whitespace-nowrap max-w-xs mx-auto md:mx-0">
-                  ID: {user?.id}
+                <h2 className="text-2xl font-black mb-2 tracking-tighter uppercase italic">{user?.username || 'Local Vault Identity'}</h2>
+                <p className="font-mono bg-paper border border-ink px-2 py-0.5 inline-block text-ink/40 text-[10px] mb-6 tracking-widest uppercase">
+                  Registry UID: {user?.id}
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <span className="px-5 py-2 bg-green-50 text-green-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-green-100">
-                    Vault Secure
+                  <span className="px-4 py-1.5 bg-neo-green text-ink border-2 border-ink font-black uppercase text-[10px] tracking-widest shadow-[2px_2px_0px_#121212]">
+                    Integrity: Prime
                   </span>
-                  <span className="px-5 py-2 bg-primary-50 text-primary-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-primary-100">
-                    AES-256-GCM
+                  <span className="px-4 py-1.5 bg-neo-blue text-white border-2 border-ink font-black uppercase text-[10px] tracking-widest shadow-[2px_2px_0px_#121212]">
+                    AES-256-GCM Locked
                   </span>
                 </div>
               </div>
               <button 
                 onClick={logout}
-                className="px-8 py-4 bg-slate-50 text-slate-600 rounded-2xl font-black hover:bg-slate-100 transition-all active:scale-[0.98]"
+                className="px-6 py-3 bg-white border-2 border-ink text-ink font-black uppercase text-xs tracking-widest hover:bg-neo-red hover:text-white transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
               >
-                Sign Out
+                Seal Archives
               </button>
             </div>
 
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm group">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="p-4 bg-primary-50 text-primary-600 rounded-2xl group-hover:bg-primary-600 group-hover:text-white transition-all">
-                    <Database size={24} />
+              <div className="bg-white border-2 border-ink p-8 shadow-[4px_4px_0px_0px_#121212] group">
+                <div className="flex items-center gap-4 mb-8 border-b-2 border-ink pb-4">
+                  <div className="p-3 bg-neo-orange border-2 border-ink shadow-[2px_2px_0px_#121212]">
+                    <Database size={20} className="text-ink stroke-[2.5px]" />
                   </div>
-                  <h3 className="text-xl font-black tracking-tight">Vault Stats</h3>
+                  <h3 className="text-xl font-black tracking-tighter uppercase italic">Ledger Metadata</h3>
                 </div>
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-400 font-bold text-xs uppercase tracking-widest">Total Entries</span>
-                    <span className="font-black text-xl">{passwords.length}</span>
+                    <span className="text-ink font-black text-[10px] uppercase tracking-[0.2em]">Archived Pages</span>
+                    <span className="font-black text-2xl font-serif italic">{passwords.length}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-400 font-bold text-xs uppercase tracking-widest">Encryption</span>
-                    <span className="font-black text-xl">Enabled</span>
+                    <span className="text-ink font-black text-[10px] uppercase tracking-[0.2em]">Archive Status</span>
+                    <span className="font-black text-2xl font-serif italic text-neo-green">ENCRYPTED</span>
                   </div>
                   <div className="pt-2">
-                    <div className="h-3 w-full bg-slate-50 rounded-full overflow-hidden border border-slate-100">
-                      <div className="h-full bg-primary-600 w-[15%] rounded-full"></div>
+                    <div className="h-4 w-full bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] overflow-hidden p-0.5">
+                      <div className="h-full bg-neo-blue border-r border-ink" style={{ width: '15%' }}></div>
                     </div>
-                    <div className="flex justify-between mt-3">
-                      <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">Storage Capacity</p>
-                      <p className="text-[10px] text-primary-600 font-black uppercase tracking-widest">15% Used</p>
+                    <div className="flex justify-between mt-4">
+                      <p className="text-[9px] text-ink font-black uppercase tracking-[0.2em]">Storage Footprint</p>
+                      <p className="text-[9px] text-neo-blue font-black uppercase tracking-[0.2em]">15% OCCUPIED</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm group">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="p-4 bg-indigo-50 text-indigo-600 rounded-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                    <Shield size={24} />
+              <div className="bg-white border-2 border-ink p-8 shadow-[4px_4px_0px_0px_#121212] group">
+                <div className="flex items-center gap-4 mb-8 border-b-2 border-ink pb-4">
+                  <div className="p-3 bg-neo-green border-2 border-ink shadow-[2px_2px_0px_#121212]">
+                    <Shield size={20} className="text-ink stroke-[2.5px]" />
                   </div>
-                  <h3 className="text-xl font-black tracking-tight">Security Check</h3>
+                  <h3 className="text-xl font-black tracking-tighter uppercase italic">Security Audit</h3>
                 </div>
-                <div className="space-y-5">
-                  <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-transparent group-hover:border-slate-100 transition-all">
-                    <div className="w-2.5 h-2.5 bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.4)]"></div>
-                    <span className="text-sm font-black text-slate-700">Master Hash Verified</span>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 p-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212]">
+                    <div className="w-3 h-3 bg-neo-green border border-ink shadow-[1px_1px_0px_#121212]"></div>
+                    <span className="text-xs font-black text-ink uppercase tracking-wider">Master Hash Verified</span>
                   </div>
-                  <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-transparent group-hover:border-slate-100 transition-all">
-                    <div className="w-2.5 h-2.5 bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.4)]"></div>
-                    <span className="text-sm font-black text-slate-700">Isolated Storage</span>
+                  <div className="flex items-center gap-3 p-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212]">
+                    <div className="w-3 h-3 bg-neo-green border border-ink shadow-[1px_1px_0px_#121212]"></div>
+                    <span className="text-xs font-black text-ink uppercase tracking-wider">Isolated Repository</span>
                   </div>
-                  <button className="w-full mt-2 py-4 bg-slate-900 text-white rounded-2xl font-black hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10 flex items-center justify-center gap-2">
-                    Open Dashboard <ChevronRight size={18} />
+                  <button className="w-full mt-4 py-4 bg-ink text-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:bg-neo-blue transition-all shadow-[4px_4px_0px_#121212] flex items-center justify-center gap-2 active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]">
+                    Analyze Vault <ChevronRight size={18} className="stroke-[2.5px]" />
                   </button>
                 </div>
               </div>
             </div>
 
             {/* Warning Box */}
-            <div className="bg-white border-2 border-red-100 rounded-[3rem] p-10 relative overflow-hidden group">
-               <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:scale-110 transition-transform duration-700 pointer-events-none">
-                  <Trash2 size={120} className="text-red-600" />
+            <div className="bg-neo-red/5 border-2 border-ink border-dashed p-8 relative overflow-hidden group">
+               <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700 pointer-events-none">
+                  <Trash2 size={120} className="text-neo-red" />
                </div>
                <div className="relative z-10">
-                  <div className="flex items-center gap-3 text-red-600 mb-4">
-                    <div className="p-2 bg-red-50 rounded-xl">
-                      <Shield size={20} />
+                  <div className="flex items-center gap-3 text-neo-red mb-4">
+                    <div className="p-2 bg-white border-2 border-ink shadow-[2px_2px_0px_#121212]">
+                      <Shield size={20} className="stroke-[2.5px]" />
                     </div>
-                    <h3 className="font-black text-2xl tracking-tight uppercase">Danger Zone</h3>
+                    <h3 className="font-black text-xl tracking-tighter uppercase italic">Expunge Records</h3>
                   </div>
-                  <p className="text-slate-500 font-medium mb-8 max-w-lg leading-relaxed">
-                    Wiping your local vault is permanent. All passwords, settings, and identity data will be destroyed instantly. This action cannot be undone.
+                  <p className="text-ink/60 font-serif italic text-lg mb-8 max-w-xl leading-relaxed">
+                    "Wiping your local vault is permanent. All passwords, settings, and identity data will be destroyed instantly. This archival erasure cannot be reversed."
                   </p>
                   <button 
                     onClick={() => {
@@ -158,9 +158,9 @@ const Profile = () => {
                         window.location.href = '/';
                       }
                     }}
-                    className="px-10 py-5 bg-red-600 text-white rounded-2xl font-black hover:bg-red-700 transition-all shadow-2xl shadow-red-500/25 active:scale-[0.98]"
+                    className="px-8 py-4 bg-neo-red text-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[6px_6px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
                   >
-                    Delete My Vault Forever
+                    Destroy Vault Forever
                   </button>
                </div>
             </div>
@@ -175,26 +175,26 @@ const Profile = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsEditModalOpen(false)}
-              className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm"
+              className="fixed inset-0 bg-ink/40 backdrop-blur-sm"
             />
             <motion.div 
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white w-full max-w-md rounded-[3rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100 p-10"
+              className="relative bg-white w-full max-w-md border-2 border-ink p-8 shadow-[10px_10px_0px_0px_#121212]"
             >
-              <h3 className="text-2xl font-black mb-2 tracking-tight">Edit Profile</h3>
-              <p className="text-slate-500 font-medium mb-8 text-sm">Update your vault display name.</p>
+              <h3 className="text-2xl font-black mb-2 tracking-tighter uppercase italic">Amend Identity</h3>
+              <p className="text-ink/60 font-serif italic text-base mb-8">"Update your archival display name."</p>
               
               <form onSubmit={handleUpdateProfile} className="space-y-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Username</label>
+                  <label className="text-[10px] font-black text-ink uppercase tracking-[0.2em] ml-1">New Alias</label>
                   <input 
                     type="text"
                     value={newUsername}
                     onChange={(e) => setNewUsername(e.target.value)}
-                    className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/5 outline-none transition-all font-bold text-slate-900"
-                    placeholder="Enter new username"
+                    className="w-full px-6 py-4 bg-paper border-2 border-ink shadow-[3px_3px_0px_#121212] focus:shadow-[6px_6px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink uppercase tracking-widest"
+                    placeholder="Enter Alias"
                     autoFocus
                   />
                 </div>
@@ -203,15 +203,15 @@ const Profile = () => {
                   <button 
                     type="button"
                     onClick={() => setIsEditModalOpen(false)}
-                    className="flex-1 py-4 bg-slate-100 text-slate-600 rounded-2xl font-black hover:bg-slate-200 transition-all"
+                    className="flex-1 py-4 bg-white border-2 border-ink text-ink font-black uppercase text-xs tracking-widest hover:bg-paper transition-all"
                   >
-                    Cancel
+                    Abort
                   </button>
                   <button 
                     type="submit"
-                    className="flex-1 py-4 bg-slate-900 text-white rounded-2xl font-black hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10"
+                    className="flex-1 py-4 bg-neo-yellow border-2 border-ink text-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[4px_4px_0px_#121212]"
                   >
-                    Save Changes
+                    Confirm Change
                   </button>
                 </div>
               </form>
@@ -220,6 +220,8 @@ const Profile = () => {
         )}
       </AnimatePresence>
     </div>
+
+
   );
 };
 

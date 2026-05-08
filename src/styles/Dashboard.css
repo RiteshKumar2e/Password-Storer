@@ -1,52 +1,73 @@
 .sidebar-gradient {
-  background: #ffffff;
-  border-right: 1px solid #f1f5f9;
+  background: #FCF8ED;
+  border-right: 4px solid #121212;
 }
 
 .nav-blur {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #f1f5f9;
+  background: #FCF8ED;
+  border-bottom: 4px solid #121212;
 }
 
 .password-card-glow {
   background: white;
-  border: 1px solid #f1f5f9;
-  transition: all 0.3s ease;
+  border: 3px solid #121212;
+  box-shadow: 6px 6px 0px 0px #121212;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.password-card-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent #121212 transparent transparent;
+  opacity: 0.1;
 }
 
 .password-card-glow:hover {
-  border-color: #e2e8f0;
-  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0px 0px #4D96FF, 10px 10px 0px 3px #121212;
 }
 
 .stat-card-inner {
   background: white;
-  border: 1px solid #f1f5f9;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  border: 3px solid #121212;
+  box-shadow: 4px 4px 0px 0px #121212;
 }
 
 .search-input {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: white;
+  border: 3px solid #121212;
+  box-shadow: 4px 4px 0px 0px #121212;
   transition: all 0.2s ease;
 }
 
 .search-input:focus {
-  background: white;
-  border-color: #0ea5e9;
-  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.05);
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0px 0px #FFD93D, 6px 6px 0px 3px #121212;
 }
 
 .btn-primary {
-  background: #0f172a;
+  background: #121212;
   color: white;
-  transition: all 0.2s ease;
+  border: 3px solid #121212;
+  box-shadow: 4px 4px 0px 0px #6BCB77;
+  transition: all 0.1s ease;
 }
 
 .btn-primary:hover {
-  background: #1e293b;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.2);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #6BCB77, 6px 6px 0px 3px #121212;
 }
+
+.btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px #6BCB77;
+}
+

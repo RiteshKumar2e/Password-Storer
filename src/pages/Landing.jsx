@@ -1,61 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Lock, Smartphone, Zap, ChevronRight } from 'lucide-react';
+import { Shield, Lock, Smartphone, Zap, ChevronRight, ArrowRight, Database } from 'lucide-react';
 import '../styles/Landing.css';
 
 const Landing = () => {
   return (
-    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden landing-hero-bg">
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 nav-blur px-6 py-4 flex justify-between items-center">
+    <div className="min-h-screen bg-paper text-ink font-sans selection:bg-neo-yellow selection:text-ink">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 bg-paper/80 backdrop-blur-md border-b-2 border-ink px-6 py-4 flex justify-between items-center shadow-[0_2px_0px_#121212]">
         <div className="flex items-center gap-2">
-          <div className="bg-primary-600 p-2 rounded-xl shadow-lg shadow-primary-500/20">
-            <Shield className="text-white w-6 h-6" />
+          <div className="bg-neo-yellow p-2 border-2 border-ink shadow-[2px_2px_0px_#121212]">
+            <Shield className="w-5 h-5 text-ink stroke-[2.5px]" />
           </div>
-          <span className="text-2xl font-black tracking-tight text-slate-900">SecureVault</span>
+          <span className="text-xl font-black tracking-tighter uppercase italic">SecureVault</span>
         </div>
-        <div className="flex gap-3">
-          <Link to="/login" className="px-6 py-2 rounded-xl font-bold text-slate-600 hover:bg-slate-50 transition-all">
-            Login
+        <div className="flex gap-4">
+          <Link to="/login" className="px-5 py-2 bg-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[2px_2px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[0px_0px_0px_#121212]">
+            Enter Archives
           </Link>
-          <Link to="/register" className="px-6 py-2 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10">
-            Get Started
+          <Link to="/register" className="px-5 py-2 bg-neo-blue text-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[2px_2px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[0px_0px_0px_#121212]">
+            Issue Ledger
           </Link>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-6 max-w-7xl mx-auto text-center relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary-100/30 blur-[120px] rounded-full -z-10 animate-pulse"></div>
-        
+      <header className="pt-32 pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-black tracking-widest text-primary-600 bg-primary-50 rounded-full uppercase">
-            Bank-Grade Security
-          </span>
-          <h1 className="text-6xl md:text-8xl font-black mb-8 leading-[1.1] hero-title">
-            Your Passwords, <br />
-            Perfectly Safe.
+          <div className="inline-block px-4 py-1.5 bg-neo-yellow border-2 border-ink font-black uppercase text-[10px] tracking-[0.3em] mb-6 shadow-[3px_3px_0px_#121212]">
+            Vol. 2024 Archival Protocol
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black leading-none tracking-tighter uppercase italic mb-8">
+            Locked in <span className="bg-neo-blue text-white px-4 py-1 rotate-[-2deg] inline-block shadow-[4px_4px_0px_#121212]">Ink</span> & Code
           </h1>
-          
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
-            SecureVault uses local-first encryption to protect your digital identity. 
-            No cloud, no compromises, just pure security.
+          <p className="text-lg md:text-xl text-ink/70 font-serif italic max-w-2xl mx-auto mb-12 leading-relaxed">
+            "An archival-grade vault for your cryptographic identities. Local, sovereign, and built on the principles of brutal transparency."
           </p>
-
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <Link to="/register" className="group flex items-center gap-2 px-10 py-5 bg-primary-600 text-white rounded-2xl text-lg font-black hover:bg-primary-700 transition-all shadow-2xl shadow-primary-500/25 active:scale-[0.98]">
-              Create Your Vault
-              <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link to="/register" className="px-10 py-4 bg-neo-green text-ink border-2 border-ink font-black text-lg uppercase tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[6px_6px_0px_#121212] flex items-center gap-3">
+              Begin Your Archive <ArrowRight className="stroke-[2.5px]" />
             </Link>
-            <a href="https://github.com" target="_blank" className="flex items-center gap-2 px-10 py-5 bg-white text-slate-900 rounded-2xl text-lg font-bold hover:bg-slate-50 transition-all border border-slate-200 shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-              View Source
-            </a>
+            <div className="px-10 py-4 bg-white border-2 border-ink font-black text-lg uppercase tracking-widest shadow-[4px_4px_0px_#121212] flex items-center gap-3 italic">
+              Offline Repository
+            </div>
           </div>
         </motion.div>
 
@@ -64,49 +56,59 @@ const Landing = () => {
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="mt-24 relative mx-auto max-w-5xl rounded-[3rem] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] border border-white/50 animate-float"
+          className="mt-32 relative mx-auto max-w-5xl brutalist-card animate-float p-1 bg-ink"
         >
-          <div className="bg-slate-50 aspect-video p-6 flex items-center justify-center">
-             <div className="w-full h-full bg-white rounded-[2rem] flex flex-col items-center justify-center border border-slate-200 shadow-inner">
-                <div className="bg-primary-50 p-6 rounded-3xl mb-6">
-                   <Lock className="w-16 h-16 text-primary-500" />
+          <div className="bg-paper aspect-video p-12 flex items-center justify-center border-4 border-ink">
+             <div className="w-full h-full bg-white border-4 border-ink flex flex-col items-center justify-center p-8 relative">
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <div className="w-4 h-4 rounded-full border-2 border-ink bg-neo-red"></div>
+                  <div className="w-4 h-4 rounded-full border-2 border-ink bg-neo-yellow"></div>
+                  <div className="w-4 h-4 rounded-full border-2 border-ink bg-neo-green"></div>
+                </div>
+                <div className="bg-neo-blue/20 p-8 border-4 border-ink mb-8">
+                   <Lock className="w-20 h-20 text-ink" />
                 </div>
                 <div className="text-center">
-                   <p className="text-slate-900 font-black text-2xl mb-2 tracking-tight">Encrypted Storage</p>
-                   <p className="text-slate-400 font-mono text-sm uppercase tracking-widest">Protected by AES-256-GCM</p>
+                   <p className="text-ink font-black text-4xl mb-4 tracking-tighter uppercase">Classified Data</p>
+                   <p className="text-ink/60 font-serif italic text-lg max-w-md">"Your digital identity, safely inscribed in our local-first cryptographic ledger."</p>
                 </div>
              </div>
           </div>
         </motion.div>
-      </section>
+      </header>
 
       {/* Features */}
-      <section className="py-32 px-6 max-w-7xl mx-auto bg-slate-50/50 rounded-[4rem] mb-20 border border-slate-100">
-        <div className="grid md:grid-cols-3 gap-12">
+      <section className="py-40 px-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-16">
           {[
-            { icon: <Lock className="text-primary-600" />, title: "Full Privacy", desc: "Your sensitive data stays on your device. We never see it." },
-            { icon: <Shield className="text-primary-600" />, title: "Military Grade", desc: "Industry-standard AES encryption keeps your keys locked tight." },
-            { icon: <Zap className="text-primary-600" />, title: "Instant Access", desc: "Works fully offline with zero latency. Fast as your hardware." }
+            { icon: <Lock />, title: "Full Privacy", desc: "Your sensitive data stays on your device. We never see a single character of your ink.", color: "bg-neo-green" },
+            { icon: <Shield />, title: "Hardened Vault", desc: "Industry-standard AES encryption keeps your keys locked tighter than a secret diary.", color: "bg-neo-blue" },
+            { icon: <Zap />, title: "Instant Access", desc: "Works fully offline. As fast as turning a page, with zero latency or cloud lag.", color: "bg-neo-orange" }
           ].map((f, i) => (
-            <div key={i} className="p-10 rounded-[2.5rem] bg-white border border-slate-100 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/5 transition-all group feature-card">
-              <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary-600 group-hover:text-white transition-all">
-                {f.icon}
+            <div key={i} className="group feature-card flex flex-col p-0 overflow-hidden">
+              <div className={`${f.color} p-10 border-b-4 border-ink flex items-center justify-center`}>
+                {React.cloneElement(f.icon, { className: "w-12 h-12 text-ink stroke-[3px]" })}
               </div>
-              <h3 className="text-2xl font-black mb-4 tracking-tight">{f.title}</h3>
-              <p className="text-slate-500 leading-relaxed font-medium">{f.desc}</p>
+              <div className="p-10 bg-white">
+                <h3 className="text-3xl font-black mb-6 tracking-tight uppercase">{f.title}</h3>
+                <p className="text-ink/70 leading-relaxed font-serif text-lg">{f.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <footer className="py-20 border-t border-slate-100 text-center">
-        <div className="flex items-center justify-center gap-2 mb-6">
-           <Shield className="text-primary-600 w-6 h-6" />
-           <span className="font-black text-xl tracking-tight">SecureVault</span>
+      <footer className="py-24 border-t-4 border-ink text-center bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]"></div>
+        <div className="flex items-center justify-center gap-3 mb-8">
+           <Shield className="text-ink w-8 h-8" />
+           <span className="font-black text-3xl tracking-tighter uppercase">SecureVault</span>
         </div>
-        <p className="text-slate-400 font-medium tracking-wide">© 2024 SecureVault. Engineered for Privacy.</p>
+        <p className="text-ink font-black tracking-widest uppercase mb-4">The Library of Privacy</p>
+        <p className="text-ink/50 font-serif italic">© 2024 SecureVault. All rights reserved. Registered in the Analog Blockchain.</p>
       </footer>
     </div>
+
 
   );
 };

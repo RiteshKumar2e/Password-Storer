@@ -1,33 +1,52 @@
 .auth-container {
-  background-color: #f8fafc;
+  background-color: #FCF8ED;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.05) 0px, transparent 50%);
+    linear-gradient(rgba(18, 18, 18, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 18, 18, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 .auth-card {
   background: white;
-  border: 1px solid #e2e8f0;
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.05), 
-    0 20px 25px -5px rgba(0, 0, 0, 0.05);
-  border-radius: 2rem;
+  border: 4px solid #121212;
+  box-shadow: 12px 12px 0px 0px #121212;
+  border-radius: 0;
+  position: relative;
+}
+
+.auth-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 2px;
+  height: 100%;
+  background: #121212;
+  opacity: 0.1;
 }
 
 .input-focus-ring:focus {
-  border-color: #0ea5e9;
-  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+  border-color: #121212;
+  box-shadow: 6px 6px 0px 0px #FFD93D;
 }
 
 .auth-button {
-  background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-  color: white;
-  font-weight: 700;
-  transition: all 0.2s ease;
+  background: #6BCB77;
+  color: #121212;
+  border: 3px solid #121212;
+  box-shadow: 4px 4px 0px 0px #121212;
+  font-weight: 900;
+  transition: all 0.1s ease;
 }
 
 .auth-button:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+  background: #5db969;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #121212;
 }
+
+.auth-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px #121212;
+}
+

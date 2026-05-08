@@ -61,125 +61,126 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm"
+          className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
         />
         
         <motion.div 
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative bg-white w-full max-w-xl rounded-[3rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100 overflow-hidden"
+          className="relative bg-white w-full max-w-xl border-2 border-ink shadow-[8px_8px_0px_0px_#121212] overflow-hidden"
         >
-          <div className="p-10">
-            <div className="flex justify-between items-center mb-10">
+          <div className="p-8 relative">
+            <div className="absolute top-0 left-0 w-full h-1 bg-neo-yellow border-b-2 border-ink"></div>
+            <div className="flex justify-between items-start mb-8">
               <div>
-                <h2 className="text-3xl font-black tracking-tight text-slate-900">{editingPassword ? 'Edit Entry' : 'Add New Item'}</h2>
-                <p className="text-slate-500 font-medium">All sensitive fields are encrypted locally.</p>
+                <h2 className="text-2xl font-black tracking-tighter text-ink uppercase italic">{editingPassword ? 'Amend Ledger Entry' : 'New Archive Record'}</h2>
+                <p className="text-ink/50 font-serif italic text-base mt-1">"Recording cryptographic data into local storage."</p>
               </div>
               <button 
                 onClick={onClose}
-                className="p-4 hover:bg-slate-50 rounded-2xl text-slate-400 transition-all"
+                className="p-3 bg-white border-2 border-ink hover:bg-neo-red hover:text-white transition-all shadow-[2px_2px_0px_#121212] active:shadow-none active:translate-x-[1px] active:translate-y-[1px]"
               >
-                <X size={24} />
+                <X size={20} className="stroke-[2.5px]" />
               </button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Website Name</label>
+                  <label className="text-[10px] font-black text-ink uppercase tracking-[0.2em]">Repository Name</label>
                   <div className="relative">
-                    <Key className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                    <Key className="absolute left-4 top-1/2 -translate-y-1/2 text-ink w-5 h-5 stroke-[2.5px]" />
                     <input 
                       type="text"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full pl-14 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all font-medium text-slate-900 placeholder:text-slate-400"
-                      placeholder="e.g. Google"
+                      className="w-full pl-12 pr-4 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30 uppercase tracking-widest"
+                      placeholder="E.G. MAIN VAULT"
                       required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Website URL</label>
+                  <label className="text-[10px] font-black text-ink uppercase tracking-[0.2em]">Source URL</label>
                   <div className="relative">
-                    <Globe className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                    <Globe className="absolute left-4 top-1/2 -translate-y-1/2 text-ink w-5 h-5 stroke-[2.5px]" />
                     <input 
                       type="text"
                       value={formData.url}
                       onChange={(e) => setFormData({...formData, url: e.target.value})}
-                      className="w-full pl-14 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all font-medium text-slate-900 placeholder:text-slate-400"
-                      placeholder="google.com"
+                      className="w-full pl-12 pr-4 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30 uppercase tracking-widest"
+                      placeholder="DOMAIN.COM"
                     />
                   </div>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Username / Email</label>
+                <label className="text-[10px] font-black text-ink uppercase tracking-[0.2em]">Alias / Credential</label>
                 <div className="relative">
-                  <User className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 text-ink w-5 h-5 stroke-[2.5px]" />
                   <input 
                     type="text"
                     value={formData.username}
                     onChange={(e) => setFormData({...formData, username: e.target.value})}
-                    className="w-full pl-14 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all font-medium text-slate-900 placeholder:text-slate-400"
-                    placeholder="Enter login id"
+                    className="w-full pl-12 pr-4 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30 uppercase tracking-widest"
+                    placeholder="ENTER IDENTITY"
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Password</label>
+                <label className="text-[10px] font-black text-ink uppercase tracking-[0.2em]">Secret Cipher</label>
                 <div className="relative">
-                  <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-ink w-5 h-5 stroke-[2.5px]" />
                   <input 
                     type="text"
                     value={formData.password}
                     onChange={(e) => setFormData({...formData, password: e.target.value})}
-                    className="w-full pl-14 pr-16 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all font-medium text-slate-900 placeholder:text-slate-400"
-                    placeholder="Enter secret"
+                    className="w-full pl-12 pr-16 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30 tracking-[0.2em]"
+                    placeholder="SECRET KEY"
                     required
                   />
                   <button 
                     type="button"
                     onClick={handleGenerate}
-                    className="absolute right-5 top-1/2 -translate-y-1/2 p-2 hover:bg-primary-50 text-primary-600 rounded-xl transition-all"
-                    title="Generate Strong Password"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 bg-neo-yellow border-2 border-ink hover:bg-neo-blue hover:text-white transition-all shadow-[1px_1px_0px_#121212]"
+                    title="Forge Strong Cipher"
                   >
-                    <Zap size={20} />
+                    <Zap size={18} className="stroke-[2.5px]" />
                   </button>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Notes (Optional)</label>
+                <label className="text-[10px] font-black text-ink uppercase tracking-[0.2em]">Marginalia (Notes)</label>
                 <div className="relative">
-                  <FileText className="absolute left-5 top-5 text-slate-400 w-5 h-5" />
+                  <FileText className="absolute left-4 top-4 text-ink w-5 h-5 stroke-[2.5px]" />
                   <textarea 
                     value={formData.notes}
                     onChange={(e) => setFormData({...formData, notes: e.target.value})}
-                    className="w-full pl-14 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all font-medium text-slate-900 placeholder:text-slate-400 min-h-[120px]"
-                    placeholder="Extra notes..."
+                    className="w-full pl-12 pr-4 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-serif italic text-base text-ink placeholder:text-ink/30 min-h-[100px]"
+                    placeholder="Additional records or context..."
                   />
                 </div>
               </div>
 
-              <div className="pt-6 flex gap-4">
+              <div className="pt-4 flex gap-4">
                 <button 
                   type="button"
                   onClick={onClose}
-                  className="flex-1 py-5 bg-slate-100 text-slate-600 rounded-2xl font-black hover:bg-slate-200 transition-all active:scale-[0.98]"
+                  className="flex-1 py-4 bg-white border-2 border-ink text-ink font-black uppercase text-sm tracking-widest hover:bg-paper transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
                 >
-                  Cancel
+                  Discard
                 </button>
                 <button 
                   type="submit"
-                  className="flex-[2] py-5 bg-primary-600 text-white rounded-2xl font-black text-lg hover:bg-primary-700 transition-all shadow-2xl shadow-primary-500/25 active:scale-[0.98]"
+                  className="flex-[2] py-4 bg-neo-green text-ink border-2 border-ink font-black text-lg uppercase tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[6px_6px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
                 >
-                  {editingPassword ? 'Update Entry' : 'Securely Save'}
+                  {editingPassword ? 'Amend Record' : 'Seal into Ledger'}
                 </button>
               </div>
             </form>
@@ -187,6 +188,8 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
         </motion.div>
       </div>
     </AnimatePresence>
+
+
   );
 };
 

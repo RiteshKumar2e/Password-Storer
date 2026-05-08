@@ -69,67 +69,68 @@ const Settings = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 flex text-slate-900">
+    <div className="min-h-screen bg-paper flex text-ink font-sans">
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      <main className="flex-1 flex flex-col min-w-0">
+      <main className="flex-1 flex flex-col min-w-0 border-l-2 border-ink">
         <Navbar setIsSidebarOpen={setIsSidebarOpen} searchTerm="" setSearchTerm={() => {}} />
 
-        <div className="p-8 md:p-12 max-w-4xl mx-auto w-full">
-          <div className="mb-12">
-            <h1 className="text-4xl font-black mb-2 tracking-tight">Settings</h1>
-            <p className="text-slate-500 font-medium">Configure your SecureVault preferences.</p>
+        <div className="p-6 md:p-10 max-w-4xl mx-auto w-full">
+          <div className="mb-10">
+            <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">Settings</h1>
+            <p className="text-ink/60 font-serif italic text-lg">"Configuring the archival protocols and vault behaviors."</p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {sections.map((section, i) => (
               <motion.div 
                 key={section.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white p-6 md:p-8 rounded-[4rem] border border-slate-100 shadow-sm hover:shadow-md transition-all group flex items-center justify-between"
+                transition={{ delay: i * 0.05 }}
+                className="bg-white p-6 border-2 border-ink shadow-[4px_4px_0px_0px_#121212] group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_#121212] transition-all cursor-default"
               >
                 <div className="flex items-center gap-6">
-                  <div className={`p-5 ${section.color} rounded-[2rem] group-hover:scale-105 transition-transform`}>
-                    {section.icon}
+                  <div className={`p-4 ${i % 3 === 0 ? 'bg-neo-yellow' : i % 3 === 1 ? 'bg-neo-blue text-white' : 'bg-neo-green'} border-2 border-ink shadow-[2px_2px_0px_#121212] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] transition-transform`}>
+                    {React.cloneElement(section.icon, { size: 24, className: "stroke-[2.5px]" })}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-black mb-1 tracking-tight">{section.title}</h3>
-                    <p className="text-slate-400 font-medium text-sm max-w-md">{section.desc}</p>
+                    <h3 className="text-xl font-black mb-1 tracking-tighter uppercase italic">{section.title}</h3>
+                    <p className="text-ink/60 font-serif italic text-base leading-snug">"{section.desc}"</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-6">
-                  <span className="px-6 py-2.5 bg-slate-900 text-white rounded-full text-[10px] font-black uppercase tracking-widest">
-                    Coming Soon
+                <div className="flex items-center gap-4 w-full md:w-auto justify-end">
+                  <span className="px-4 py-1 bg-ink text-white border-2 border-ink text-[9px] font-black uppercase tracking-widest shadow-[2px_2px_0px_#121212]">
+                    Restricted Access
                   </span>
-                  <ChevronRight size={20} className="text-slate-200" />
+                  <ChevronRight size={18} className="text-ink/20 group-hover:text-ink transition-colors stroke-[2.5px]" />
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Device Sync Promo */}
-          <div className="mt-12 bg-primary-600 rounded-[3rem] p-10 text-white relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:rotate-12 transition-transform duration-700">
-              <Sparkles size={140} />
+          {/* Sync Promo */}
+          <div className="mt-12 bg-neo-yellow border-2 border-ink p-8 shadow-[6px_6px_0px_0px_#121212] relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:rotate-12 transition-transform duration-700 pointer-events-none">
+              <Monitor size={120} className="stroke-[2.5px]" />
             </div>
             <div className="relative z-10">
-              <div className="flex gap-2 mb-6">
-                <Monitor size={24} />
-                <ChevronRight size={24} className="text-primary-300" />
-                <Smartphone size={24} />
+              <div className="flex gap-2 mb-4">
+                <Monitor size={20} className="stroke-[2.5px]" />
+                <ChevronRight size={20} className="text-ink/30 stroke-[2.5px]" />
+                <Smartphone size={20} className="stroke-[2.5px]" />
               </div>
-              <h3 className="text-3xl font-black mb-3 tracking-tight">Cross-Device Syncing</h3>
-              <p className="text-primary-100 max-w-md font-medium leading-relaxed">
-                We're working on a peer-to-peer encrypted sync system that keeps your data local while sharing it across your devices.
+              <h3 className="text-2xl font-black mb-2 tracking-tighter uppercase italic">Cross-Device Manuscript Sync</h3>
+              <p className="text-ink font-serif italic text-lg max-w-lg leading-snug">
+                "We are finalizing a peer-to-peer cryptographic sync system that preserves your archival local-first sovereignty while bridging multiple devices."
               </p>
             </div>
           </div>
         </div>
       </main>
     </div>
+
   );
 };
 

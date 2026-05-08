@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   };
 
   const navItems = [
-    { name: 'Dashboard', icon: <LayoutDashboard size={20} />, path: '/' },
+    { name: 'Dashboard', icon: <LayoutDashboard size={20} />, path: '/dashboard' },
     { name: 'Security Audit', icon: <ShieldAlert size={20} />, path: '/audit' },
     { name: 'Settings', icon: <Settings size={20} />, path: '/settings' },
     { name: 'Profile', icon: <User size={20} />, path: '/profile' },
@@ -25,7 +25,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       {/* Mobile Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -35,17 +35,17 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         )}
       </AnimatePresence>
 
-      <aside className={`fixed inset-y-0 left-0 w-72 bg-white border-r border-slate-100 z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out flex flex-col`}>
-        <div className="p-8">
-          <div className="flex items-center justify-between mb-12">
-            <div className="flex items-center gap-3">
-              <div className="bg-primary-600 p-2.5 rounded-2xl shadow-lg shadow-primary-500/20">
-                <Shield className="text-white w-6 h-6" />
+      <aside className={`fixed inset-y-0 left-0 w-64 bg-paper border-r-2 border-ink z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out flex flex-col`}>
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-10">
+            <div className="flex items-center gap-2">
+              <div className="bg-neo-yellow p-2 border-2 border-ink shadow-[2px_2px_0px_#121212]">
+                <Shield className="text-ink w-5 h-5 stroke-[2.5px]" />
               </div>
-              <span className="text-2xl font-black tracking-tight text-slate-900">SecureVault</span>
+              <span className="text-xl font-black tracking-tighter text-ink uppercase">SecureVault</span>
             </div>
-            <button onClick={() => setIsOpen(false)} className="lg:hidden text-slate-400 hover:text-slate-900">
-              <X size={24} />
+            <button onClick={() => setIsOpen(false)} className="lg:hidden text-ink hover:scale-110 transition-transform">
+              <X size={24} className="stroke-[2.5px]" />
             </button>
           </div>
 
@@ -54,31 +54,32 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               <NavLink
                 key={item.name}
                 to={item.path}
-                className={({ isActive }) => 
-                  `flex items-center gap-4 px-6 py-4 rounded-2xl font-black transition-all ${
-                    isActive 
-                    ? 'bg-slate-900 text-white shadow-2xl shadow-slate-900/10' 
-                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-3 border-2 border-ink font-black uppercase text-sm tracking-wider transition-all shadow-[2px_2px_0px_#121212] ${isActive
+                    ? 'bg-neo-blue text-white translate-x-[-1px] translate-y-[-1px] shadow-[4px_4px_0px_#121212]'
+                    : 'bg-white text-ink hover:bg-neo-yellow'
                   }`
                 }
               >
-                {item.icon}
+                {React.cloneElement(item.icon, { className: "stroke-[2.5px]" })}
                 {item.name}
               </NavLink>
             ))}
           </nav>
-        </div>
 
-        <div className="mt-auto p-8 border-t border-slate-50">
-          <button 
-            onClick={handleLogout}
-            className="flex items-center gap-4 px-6 py-4 w-full text-red-500 font-black hover:bg-red-50 rounded-2xl transition-all group"
-          >
-            <LogOut size={20} className="group-hover:-translate-x-1 transition-transform" />
-            Logout Session
-          </button>
+          <div className="mt-8 pt-6 border-t-2 border-ink">
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-3 px-4 py-3 w-full bg-neo-red/10 border-2 border-ink text-neo-red font-black uppercase text-sm tracking-widest hover:bg-neo-red hover:text-white transition-all shadow-[2px_2px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[0px_0px_0px_#121212] group"
+            >
+              <LogOut size={18} className="group-hover:-translate-x-1 transition-transform stroke-[2.5px]" />
+              Exit Archives
+            </button>
+          </div>
         </div>
       </aside>
+
+
     </>
   );
 };

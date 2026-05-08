@@ -1,53 +1,112 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #f0f9ff;
-  --color-primary-100: #e0f2fe;
-  --color-primary-200: #bae6fd;
-  --color-primary-300: #7dd3fc;
-  --color-primary-400: #38bdf8;
-  --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
-  --color-primary-700: #0369a1;
-  --color-primary-800: #075985;
-  --color-primary-900: #0c4a6e;
+  --color-paper: #FCF8ED;
+  --color-ink: #121212;
+  --color-neo-yellow: #FFD93D;
+  --color-neo-green: #6BCB77;
+  --color-neo-red: #FF6B6B;
+  --color-neo-blue: #4D96FF;
+  --color-neo-orange: #FF9F43;
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-serif: 'EB Garamond', serif;
+
+  --shadow-brutalist: 3px 3px 0px 0px #121212;
+  --shadow-brutalist-sm: 2px 2px 0px 0px #121212;
+  --shadow-brutalist-lg: 5px 5px 0px 0px #121212;
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.4;
   font-weight: 400;
-
-  color: #0f172a;
-  background-color: #ffffff;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #121212;
+  background-color: #FCF8ED;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-image: 
+    linear-gradient(rgba(18, 18, 18, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 18, 18, 0.03) 1px, transparent 1px);
+  background-size: 15px 15px;
 }
 
 @layer base {
   * {
-    border-color: #e2e8f0;
+    border-color: #121212;
   }
-  body {
-    background-color: #ffffff;
-    color: #0f172a;
+  
+  h1 { font-size: 2.5rem; line-height: 1; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  p, span, div:not(.ui-element) {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+  }
+
+  button {
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.brutalist-card {
+  background: white;
+  border: 2px solid #121212;
+  box-shadow: 3px 3px 0px 0px #121212;
+  transition: all 0.15s ease;
 }
+
+.brutalist-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px #121212;
+}
+
+.brutalist-button {
+  border: 2px solid #121212;
+  box-shadow: 2px 2px 0px 0px #121212;
+  transition: all 0.1s active;
+  cursor: pointer;
+}
+
+.brutalist-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px 0px #121212;
+}
+
+.brutalist-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0px 0px 0px 0px #121212;
+}
+
+.brutalist-input {
+  border: 2px solid #121212;
+  box-shadow: 2px 2px 0px 0px #121212;
+  outline: none;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+.brutalist-input:focus {
+  box-shadow: 3px 3px 0px 0px #121212;
+}
+
+
+.book-page-texture {
+  background-color: #FCF8ED;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+

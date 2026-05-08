@@ -38,64 +38,64 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex text-slate-900">
+    <div className="min-h-screen bg-paper flex text-ink font-sans">
       {/* Sidebar */}
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      <main className="flex-1 flex flex-col min-w-0">
+      <main className="flex-1 flex flex-col min-w-0 border-l-2 border-ink">
         {/* Navbar */}
         <Navbar setIsSidebarOpen={setIsSidebarOpen} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
         {/* Dashboard Content */}
-        <div className="p-8 md:p-12 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+        <div className="p-6 md:p-10 max-w-7xl mx-auto w-full">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
             <div>
-              <h1 className="text-4xl font-black mb-2 tracking-tight">My Vault</h1>
-              <p className="text-slate-500 font-medium">Manage your secure digital identity.</p>
+              <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">The Archives</h1>
+              <p className="text-ink/60 font-serif italic text-lg">"A complete record of your cryptographic identities."</p>
             </div>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-2xl font-black hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/10 active:scale-[0.98]"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-neo-yellow text-ink border-2 border-ink font-black uppercase tracking-wider hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
             >
-              <PlusCircle size={20} />
-              Add New Password
+              <PlusCircle size={20} className="stroke-[2.5px]" />
+              New Entry
             </button>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {[
-              { label: 'Total Passwords', value: passwords.length, icon: <Key />, color: 'blue' },
-              { label: 'Security Score', value: '94%', icon: <Shield />, color: 'green' },
-              { label: 'Vault Status', value: 'Encrypted', icon: <PlusCircle />, color: 'purple' }
+              { label: 'Total Records', value: passwords.length, icon: <Key />, color: 'bg-neo-blue' },
+              { label: 'Security Score', value: '94%', icon: <Shield />, color: 'bg-neo-green' },
+              { label: 'Vault Integrity', value: 'Prime', icon: <PlusCircle />, color: 'bg-neo-orange' }
             ].map((stat, i) => (
-              <div key={i} className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm stat-card-inner group hover:border-primary-500 transition-all cursor-default">
+              <div key={i} className="bg-white border-2 border-ink p-6 shadow-[4px_4px_0px_0px_#121212] group hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_#121212] transition-all cursor-default">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-4 bg-slate-50 text-slate-400 group-hover:bg-primary-600 group-hover:text-white rounded-2xl transition-all`}>
-                    {stat.icon}
+                  <div className={`p-3 ${stat.color} border-2 border-ink shadow-[2px_2px_0px_#121212]`}>
+                    {React.cloneElement(stat.icon, { className: "w-5 h-5 text-ink stroke-[2.5px]" })}
                   </div>
-                  <span className="text-slate-400 font-black uppercase text-[10px] tracking-widest">{stat.label}</span>
+                  <span className="text-ink font-black uppercase text-[10px] tracking-[0.2em]">{stat.label}</span>
                 </div>
-                <p className="text-5xl font-black tracking-tight">{stat.value}</p>
+                <p className="text-4xl font-black tracking-tighter font-serif italic">{stat.value}</p>
               </div>
             ))}
           </div>
 
           {/* List Section */}
           <div className="space-y-6">
-            <div className="flex items-center justify-between px-2 mb-6">
-              <h2 className="text-2xl font-black tracking-tight">Password Collection</h2>
-              <div className="px-4 py-1.5 bg-slate-100 rounded-full text-xs font-black text-slate-500 uppercase tracking-widest">
-                {filteredPasswords.length} Entries
+            <div className="flex items-center justify-between px-2 mb-8 border-b-2 border-ink pb-4">
+              <h2 className="text-2xl font-black tracking-tighter uppercase">Index of Entries</h2>
+              <div className="px-4 py-1 bg-neo-yellow border-2 border-ink font-black text-ink uppercase text-xs tracking-widest shadow-[2px_2px_0px_#121212]">
+                {filteredPasswords.length} Pages
               </div>
             </div>
 
             {isLoading ? (
               <div className="flex justify-center py-20">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+                <div className="animate-spin h-12 w-12 border-4 border-neo-blue border-t-ink"></div>
               </div>
             ) : filteredPasswords.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <AnimatePresence mode='popLayout'>
                   {filteredPasswords.map((password) => (
                     <PasswordCard 
@@ -108,20 +108,21 @@ const Dashboard = () => {
                 </AnimatePresence>
               </div>
             ) : (
-              <div className="bg-white border border-slate-100 rounded-[3rem] p-24 text-center shadow-sm">
-                <div className="bg-slate-50 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8">
-                   <Search className="text-slate-300 w-10 h-10" />
+              <div className="bg-white border-2 border-ink p-16 text-center shadow-[6px_6px_0px_0px_#121212] relative">
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]"></div>
+                <div className="bg-paper w-20 h-20 border-2 border-ink flex items-center justify-center mx-auto mb-6 shadow-[3px_3px_0px_#121212]">
+                   <Search className="text-ink w-8 h-8 stroke-[2.5px]" />
                 </div>
-                <h3 className="text-3xl font-black mb-3 tracking-tight">Vault is empty</h3>
-                <p className="text-slate-500 max-w-sm mx-auto mb-10 font-medium">
-                  {searchTerm ? `No results for "${searchTerm}"` : "You haven't added any passwords yet. Start securing your accounts today."}
+                <h3 className="text-2xl font-black mb-2 tracking-tighter uppercase">The Ledger is Blank</h3>
+                <p className="text-ink/60 max-w-md mx-auto mb-8 font-serif italic text-lg">
+                  {searchTerm ? `No records matching "${searchTerm}" found in the archives.` : "You haven't recorded any cryptographic keys yet. Begin your archival process today."}
                 </p>
                 {!searchTerm && (
                   <button 
                     onClick={() => setIsModalOpen(true)}
-                    className="px-10 py-4 bg-primary-600 text-white rounded-2xl font-black hover:bg-primary-700 transition-all shadow-2xl shadow-primary-500/20"
+                    className="px-8 py-3 bg-neo-green text-ink border-2 border-ink font-black uppercase tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212]"
                   >
-                    Create Your First Entry
+                    Start New Ledger
                   </button>
                 )}
               </div>
@@ -129,6 +130,8 @@ const Dashboard = () => {
           </div>
         </div>
       </main>
+
+
 
       <AddPasswordModal 
         isOpen={isModalOpen} 
