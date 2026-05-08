@@ -55,13 +55,13 @@ const Dashboard = () => {
             <div>
               <div className="flex items-center gap-3 mb-1">
                 <span className="px-2 py-0.5 bg-ink text-white text-[10px] font-black uppercase tracking-widest">Section 01</span>
-                <h1 className="text-4xl font-black tracking-tighter uppercase italic">The Archives</h1>
+                <h1 className="text-4xl font-black tracking-tighter uppercase italic">Password Vault</h1>
               </div>
-              <p className="text-ink/60 font-serif italic text-lg leading-none">"A digital record of your cryptographic manuscripts."</p>
+              <p className="text-ink/60 font-serif italic text-lg leading-none">"Manage and secure your digital credentials safely."</p>
             </div>
             <div className="hidden md:block text-right">
-              <span className="text-[10px] font-black uppercase tracking-widest text-ink/30 block">Volume: 2024.IV</span>
-              <span className="text-[10px] font-black uppercase tracking-widest text-ink/30 block">Folio: {passwords.length} Entries</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-ink/30 block">Last Updated: 2024.IV</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-ink/30 block">Total: {passwords.length} Passwords</span>
             </div>
           </div>
             <button 
@@ -69,15 +69,15 @@ const Dashboard = () => {
               className="flex items-center justify-center gap-2 px-6 py-3 bg-neo-yellow text-ink border-2 border-ink font-black uppercase tracking-wider hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] mb-10"
             >
               <PlusCircle size={20} className="stroke-[2.5px]" />
-              New Entry
+              Add Password
             </button>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {[
-              { label: 'Total Records', value: passwords.length, icon: <Key />, color: 'bg-neo-blue' },
+              { label: 'Total Passwords', value: passwords.length, icon: <Key />, color: 'bg-neo-blue' },
               { label: 'Security Score', value: '94%', icon: <Shield />, color: 'bg-neo-green' },
-              { label: 'Vault Integrity', value: 'Prime', icon: <PlusCircle />, color: 'bg-neo-orange' }
+              { label: 'Vault Status', value: 'Protected', icon: <PlusCircle />, color: 'bg-neo-orange' }
             ].map((stat, i) => (
               <div key={i} className="bg-white border-2 border-ink p-6 shadow-[4px_4px_0px_0px_#121212] group hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_#121212] transition-all cursor-default">
                 <div className="flex items-center gap-4 mb-6">
@@ -94,9 +94,9 @@ const Dashboard = () => {
           {/* List Section */}
           <div className="space-y-6">
             <div className="flex items-center justify-between px-2 mb-8 border-b-2 border-ink pb-4">
-              <h2 className="text-2xl font-black tracking-tighter uppercase">Index of Entries</h2>
+              <h2 className="text-2xl font-black tracking-tighter uppercase">Password List</h2>
               <div className="px-4 py-1 bg-neo-yellow border-2 border-ink font-black text-ink uppercase text-xs tracking-widest shadow-[2px_2px_0px_#121212]">
-                {filteredPasswords.length} Pages
+                {filteredPasswords.length} Records
               </div>
             </div>
 
@@ -123,9 +123,9 @@ const Dashboard = () => {
                 <div className="bg-paper w-20 h-20 border-2 border-ink flex items-center justify-center mx-auto mb-6 shadow-[3px_3px_0px_#121212]">
                    <Search className="text-ink w-8 h-8 stroke-[2.5px]" />
                 </div>
-                <h3 className="text-2xl font-black mb-2 tracking-tighter uppercase">The Ledger is Blank</h3>
+                <h3 className="text-2xl font-black mb-2 tracking-tighter uppercase">Your Vault is Empty</h3>
                 <p className="text-ink/60 max-w-md mx-auto mb-8 font-serif italic text-lg">
-                  {searchTerm ? `No records matching "${searchTerm}" found in the archives.` : "You haven't recorded any cryptographic keys yet. Begin your archival process today."}
+                  {searchTerm ? `No passwords matching "${searchTerm}" found.` : "You haven't saved any passwords yet. Start by adding your first one today."}
                 </p>
                 {!searchTerm && (
                   <button 

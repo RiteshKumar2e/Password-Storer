@@ -65,8 +65,8 @@ const Audit = () => {
 
         <div className="p-6 md:p-10 max-w-7xl mx-auto w-full">
           <div className="mb-10">
-            <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">Security Audit</h1>
-            <p className="text-ink/60 font-serif italic text-lg">"Identifying vulnerabilities within your cryptographic archives."</p>
+            <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">Security Check</h1>
+            <p className="text-ink/60 font-serif italic text-lg">"Scanning for potential security risks in your passwords."</p>
           </div>
 
           {/* Security Score Header */}
@@ -80,24 +80,24 @@ const Audit = () => {
                 <div className="w-40 h-40 border-2 border-ink flex items-center justify-center bg-paper shadow-[4px_4px_0px_#121212]">
                    <div className="text-center">
                       <span className="text-5xl font-black tracking-tighter">{auditResults.score}%</span>
-                      <p className="text-[10px] font-black text-ink uppercase tracking-widest mt-1">Health Index</p>
+                      <p className="text-[10px] font-black text-ink uppercase tracking-widest mt-1">Security Score</p>
                    </div>
                 </div>
               </div>
 
               <div className="flex-1 text-center md:text-left z-10">
                 <h3 className="text-2xl font-black mb-4 tracking-tighter uppercase italic">
-                  {auditResults.score === 100 ? "Ledger is Rock Solid" : 
-                   auditResults.score > 80 ? "Slight Vulnerabilities" :
-                   auditResults.score > 50 ? "Moderate Risks Detected" : "Critical Security Breach!"}
+                  {auditResults.score === 100 ? "Vault is Secure" : 
+                   auditResults.score > 80 ? "Slight Issues" :
+                   auditResults.score > 50 ? "Risks Detected" : "Security Alert!"}
                 </h3>
                 <p className="text-ink/60 mb-8 font-serif italic text-lg leading-snug">
-                  "The archivist has scanned {passwords.length} records. 
-                  {auditResults.weak.length > 0 ? ` Found ${auditResults.weak.length} shallow ciphers.` : " All ciphers are deeply encrypted."}
-                  {auditResults.reusedList.length > 0 ? ` Found ${auditResults.reusedList.length} duplicated manuscripts.` : " No duplications detected in the archives."}"
+                  "The scanner has checked {passwords.length} passwords. 
+                  {auditResults.weak.length > 0 ? ` Found ${auditResults.weak.length} weak passwords.` : " All passwords are strong."}
+                  {auditResults.reusedList.length > 0 ? ` Found ${auditResults.reusedList.length} reused passwords.` : " No reused passwords found."}"
                 </p>
                 <button className="px-8 py-3 bg-neo-blue text-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]">
-                  Fortify Archives
+                  Improve Security
                 </button>
               </div>
             </div>

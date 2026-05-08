@@ -40,24 +40,24 @@ const Profile = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-4 border-ink pb-8 relative"
           >
-            {/* Confidential Stamp */}
-            <div className="absolute -top-4 -right-4 border-4 border-neo-red px-4 py-2 rotate-[15deg] opacity-20 pointer-events-none hidden md:block">
-              <span className="text-2xl font-black text-neo-red uppercase tracking-widest">Confidential</span>
+            {/* Secure Badge */}
+            <div className="absolute -top-4 -right-4 border-4 border-neo-green px-4 py-2 rotate-[15deg] opacity-20 pointer-events-none hidden md:block">
+              <span className="text-2xl font-black text-neo-green uppercase tracking-widest">Secure</span>
             </div>
 
             <div>
               <div className="flex items-center gap-3 mb-1">
-                <span className="px-2 py-0.5 bg-ink text-white text-[10px] font-black uppercase tracking-widest">Archivist ID: {user?.id?.slice(0,8) || '0000'}</span>
-                <h1 className="text-4xl font-black tracking-tighter uppercase italic">Service Record</h1>
+                <span className="px-2 py-0.5 bg-ink text-white text-[10px] font-black uppercase tracking-widest">User ID: {user?.id?.slice(0,8) || '0000'}</span>
+                <h1 className="text-4xl font-black tracking-tighter uppercase italic">Account Profile</h1>
               </div>
-              <p className="text-ink/60 font-serif italic text-lg leading-none">"Official profile identifiers and vault integrity metrics."</p>
+              <p className="text-ink/60 font-serif italic text-lg leading-none">"View and manage your account details and security metrics."</p>
             </div>
             <button 
               onClick={() => setIsEditModalOpen(true)}
               className="px-6 py-3 bg-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[4px_4px_0px_#121212] flex items-center gap-2"
             >
               <Pencil size={16} className="text-ink stroke-[2.5px]" />
-              Modify Identity
+              Edit Profile
             </button>
           </motion.div>
 
@@ -73,13 +73,13 @@ const Profile = () => {
                 </div>
               </div>
               <div className="text-center md:text-left flex-1">
-                <h2 className="text-2xl font-black mb-2 tracking-tighter uppercase italic">{user?.username || 'Local Vault Identity'}</h2>
+                <h2 className="text-2xl font-black mb-2 tracking-tighter uppercase italic">{user?.username || 'Local Account'}</h2>
                 <p className="font-mono bg-paper border border-ink px-2 py-0.5 inline-block text-ink/40 text-[10px] mb-6 tracking-widest uppercase">
-                  Registry UID: {user?.id}
+                  Account ID: {user?.id}
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                   <span className="px-4 py-1.5 bg-neo-green text-ink border-2 border-ink font-black uppercase text-[10px] tracking-widest shadow-[2px_2px_0px_#121212]">
-                    Integrity: Prime
+                    Status: Active
                   </span>
                   <span className="px-4 py-1.5 bg-neo-blue text-white border-2 border-ink font-black uppercase text-[10px] tracking-widest shadow-[2px_2px_0px_#121212]">
                     AES-256-GCM Locked
@@ -90,7 +90,7 @@ const Profile = () => {
                 onClick={logout}
                 className="px-6 py-3 bg-white border-2 border-ink text-ink font-black uppercase text-xs tracking-widest hover:bg-neo-red hover:text-white transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
               >
-                Seal Archives
+                Logout
               </button>
             </div>
 

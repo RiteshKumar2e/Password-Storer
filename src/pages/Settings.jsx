@@ -78,7 +78,7 @@ const Settings = () => {
         <div className="p-6 md:p-10 max-w-4xl mx-auto w-full">
           <div className="mb-10">
             <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">Settings</h1>
-            <p className="text-ink/60 font-serif italic text-lg">"Configuring the archival protocols and vault behaviors."</p>
+            <p className="text-ink/60 font-serif italic text-lg">"Manage your application settings and security preferences."</p>
           </div>
 
           <div className="space-y-6">

@@ -45,7 +45,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 </div>
                 <span className="text-lg font-black tracking-tighter text-ink uppercase italic">SecureVault</span>
               </div>
-              <span className="text-[8px] font-black uppercase tracking-[0.4em] text-ink/40 ml-0.5">Library Registry v2.0</span>
+              <span className="text-[8px] font-black uppercase tracking-[0.4em] text-ink/40 ml-0.5">Secure Vault v2.0</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="lg:hidden text-ink hover:scale-110 transition-transform">
               <X size={24} className="stroke-[2.5px]" />
@@ -76,7 +76,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               className="flex items-center gap-3 px-4 py-3 w-full bg-neo-red/10 border-2 border-ink text-neo-red font-black uppercase text-sm tracking-widest hover:bg-neo-red hover:text-white transition-all shadow-[2px_2px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[0px_0px_0px_#121212] group"
             >
               <LogOut size={18} className="group-hover:-translate-x-1 transition-transform stroke-[2.5px]" />
-              Exit Archives
+              Logout
             </button>
           </div>
         </div>

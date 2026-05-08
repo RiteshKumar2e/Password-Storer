@@ -19,20 +19,20 @@ const Navbar = ({ setIsSidebarOpen, searchTerm, setSearchTerm }) => {
           <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-ink group-focus-within:text-neo-blue transition-colors stroke-[2.5px]" size={18} />
           <input 
             type="text"
-            placeholder="Browse the archives..."
+            placeholder="Search passwords..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-14 pr-6 py-3 bg-white border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-sm text-ink placeholder:text-ink/30 uppercase tracking-widest"
+            className="w-full pl-14 pr-6 py-3 bg-white border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-sm text-ink placeholder:text-ink/30"
           />
         </div>
       </div>
 
       <div className="flex items-center gap-6">
         <div className="hidden md:flex flex-col items-end">
-          <span className="text-[10px] font-black text-ink uppercase tracking-widest">Active Archival</span>
+          <span className="text-[10px] font-black text-ink uppercase tracking-widest">Security Status</span>
           <span className="text-[9px] font-black text-neo-green uppercase tracking-[0.2em] flex items-center gap-1">
             <Shield size={10} className="stroke-[2.5px]" />
-            Ledger Locked
+            Vault Protected
           </span>
         </div>
         
@@ -41,8 +41,8 @@ const Navbar = ({ setIsSidebarOpen, searchTerm, setSearchTerm }) => {
             {user?.username?.charAt(0).toUpperCase() || 'A'}
           </div>
           <div className="hidden sm:block">
-            <p className="text-sm font-black text-ink uppercase tracking-tighter">{user?.username || 'Archivist'}</p>
-            <p className="text-[9px] text-ink/40 font-black uppercase tracking-widest">Offline Repository</p>
+            <p className="text-sm font-black text-ink uppercase tracking-tighter">{user?.username || 'User'}</p>
+            <p className="text-[9px] text-ink/40 font-black uppercase tracking-widest">Local Vault</p>
           </div>
         </div>
       </div>

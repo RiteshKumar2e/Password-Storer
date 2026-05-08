@@ -15,9 +15,9 @@ const NotFound = () => {
         </div>
         
         <h1 className="text-8xl font-black mb-2 tracking-tighter uppercase italic">404</h1>
-        <h2 className="text-3xl font-black mb-8 uppercase tracking-tight italic">Uncharted Archives</h2>
+        <h2 className="text-3xl font-black mb-8 uppercase tracking-tight italic">Page Not Found</h2>
         <p className="text-ink/60 max-w-md mx-auto mb-12 font-serif italic text-xl leading-relaxed">
-          "The manuscript you seek has not been cataloged in our local archives. It may be lost to time or moved to a restricted wing."
+          "The page you are looking for doesn't exist. It might have been moved or deleted."
         </p>
 
         <Link 
@@ -25,7 +25,7 @@ const NotFound = () => {
           className="inline-flex items-center gap-3 px-10 py-4 bg-neo-blue text-white border-2 border-ink font-black text-lg uppercase tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[6px_6px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
         >
           <Home size={22} className="stroke-[2.5px]" />
-          Return to Registry
+          Go back Home
         </Link>
       </motion.div>
     </div>

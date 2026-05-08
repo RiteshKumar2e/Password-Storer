@@ -50,21 +50,21 @@ const Register = () => {
           </div>
         </div>
 
-        <h2 className="text-3xl font-black text-center mb-2 tracking-tighter text-ink uppercase italic">Issue Ledger</h2>
+        <h2 className="text-3xl font-black text-center mb-2 tracking-tighter text-ink uppercase italic">Create Account</h2>
         <p className="text-ink/60 text-center mb-10 font-serif italic text-base border-b-2 border-ink/10 pb-3">
-          "Establishing a new cryptographic record."
+          "Setup your secure master password."
         </p>
 
         <form onSubmit={handleRegister} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-[10px] font-black ml-1 text-ink uppercase tracking-[0.2em]">Master Keyphrase</label>
+            <label className="text-[10px] font-black ml-1 text-ink uppercase tracking-[0.2em]">Master Password</label>
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-ink w-5 h-5 stroke-[2.5px]" />
               <input 
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-12 pr-12 py-4 bg-paper border-2 border-ink focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30 uppercase tracking-widest"
+                className="w-full pl-12 pr-12 py-4 bg-paper border-2 border-ink focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
                 placeholder="MIN. 8 CHARACTERS"
                 required
               />
@@ -79,15 +79,15 @@ const Register = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black ml-1 text-ink uppercase tracking-[0.2em]">Verify Keyphrase</label>
+            <label className="text-[10px] font-black ml-1 text-ink uppercase tracking-[0.2em]">Confirm Password</label>
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-ink w-5 h-5 stroke-[2.5px]" />
               <input 
                 type={showPassword ? "text" : "password"}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-paper border-2 border-ink focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30 uppercase tracking-widest"
-                placeholder="REPEAT KEYPHRASE"
+                className="w-full pl-12 pr-4 py-4 bg-paper border-2 border-ink focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
+                placeholder="REPEAT PASSWORD"
                 required
               />
             </div>
@@ -95,7 +95,7 @@ const Register = () => {
 
           <div className="bg-neo-red/10 border-2 border-ink p-4 shadow-[3px_3px_0px_#121212]">
             <p className="text-[10px] text-ink leading-tight font-black uppercase tracking-tight">
-              ⚠️ Warning: Lost keys cannot be recovered. Vault will be sealed.
+              ⚠️ Warning: If you lose this password, your data cannot be recovered.
             </p>
           </div>
 
@@ -103,12 +103,12 @@ const Register = () => {
             type="submit"
             className="w-full py-4 bg-neo-green text-ink border-2 border-ink font-black text-lg uppercase tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
           >
-            Confirm Issue
+            Create My Account
           </button>
         </form>
 
         <p className="mt-10 text-center text-ink font-serif italic text-base">
-          Registered? <Link to="/login" className="text-neo-blue font-black uppercase hover:underline underline-offset-4 decoration-2 not-italic">Login to Ledger</Link>
+          Already have an account? <Link to="/login" className="text-neo-blue font-black uppercase hover:underline underline-offset-4 decoration-2 not-italic">Login</Link>
         </p>
       </motion.div>
     </div>

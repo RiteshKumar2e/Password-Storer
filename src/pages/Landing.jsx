@@ -17,10 +17,10 @@ const Landing = () => {
         </div>
         <div className="flex gap-4">
           <Link to="/login" className="px-5 py-2 bg-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[2px_2px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[0px_0px_0px_#121212]">
-            Enter Archives
+            Login
           </Link>
           <Link to="/register" className="px-5 py-2 bg-neo-blue text-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[2px_2px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[0px_0px_0px_#121212]">
-            Issue Ledger
+            Sign Up
           </Link>
         </div>
       </nav>
@@ -33,20 +33,20 @@ const Landing = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-block px-4 py-1.5 bg-neo-yellow border-2 border-ink font-black uppercase text-[10px] tracking-[0.3em] mb-6 shadow-[3px_3px_0px_#121212]">
-            Vol. 2024 Archival Protocol
+            v2.0 Security Protocol
           </div>
           <h1 className="text-5xl md:text-7xl font-black leading-none tracking-tighter uppercase italic mb-8">
             Locked in <span className="bg-neo-blue text-white px-4 py-1 rotate-[-2deg] inline-block shadow-[4px_4px_0px_#121212]">Ink</span> & Code
           </h1>
           <p className="text-lg md:text-xl text-ink/70 font-serif italic max-w-2xl mx-auto mb-12 leading-relaxed">
-            "An archival-grade vault for your cryptographic identities. Local, sovereign, and built on the principles of brutal transparency."
+            "A secure vault for your digital passwords. Local-first, private, and built for simplicity and security."
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link to="/register" className="px-10 py-4 bg-neo-green text-ink border-2 border-ink font-black text-lg uppercase tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[6px_6px_0px_#121212] flex items-center gap-3">
-              Begin Your Archive <ArrowRight className="stroke-[2.5px]" />
+              Get Started <ArrowRight className="stroke-[2.5px]" />
             </Link>
             <div className="px-10 py-4 bg-white border-2 border-ink font-black text-lg uppercase tracking-widest shadow-[4px_4px_0px_#121212] flex items-center gap-3 italic">
-              Offline Repository
+              Local Vault
             </div>
           </div>
         </motion.div>
@@ -69,8 +69,8 @@ const Landing = () => {
                    <Lock className="w-20 h-20 text-ink" />
                 </div>
                 <div className="text-center">
-                   <p className="text-ink font-black text-4xl mb-4 tracking-tighter uppercase">Classified Data</p>
-                   <p className="text-ink/60 font-serif italic text-lg max-w-md">"Your digital identity, safely inscribed in our local-first cryptographic ledger."</p>
+                   <p className="text-ink font-black text-4xl mb-4 tracking-tighter uppercase">Secure Data</p>
+                   <p className="text-ink/60 font-serif italic text-lg max-w-md">"Your digital identity, safely inscribed in our local-first password vault."</p>
                 </div>
              </div>
           </div>

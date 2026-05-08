@@ -36,10 +36,10 @@ const PasswordCard = ({ password, onEdit, onDelete }) => {
               <Shield className="text-ink w-4 h-4 stroke-[2.5px]" />
             </div>
             <div>
-              <p className="text-[8px] font-black uppercase tracking-[0.3em] text-ink/30 mb-0.5">Entry {password.id.slice(-4)}</p>
+              <p className="text-[8px] font-black uppercase tracking-[0.3em] text-ink/30 mb-0.5">Record {password.id.slice(-4)}</p>
               <h3 className="text-xl font-black tracking-tighter uppercase italic truncate max-w-[150px]">{password.name}</h3>
               <div className="flex items-center gap-1 text-ink/40 text-[9px] font-black uppercase tracking-widest mt-0.5">
-                <span className="truncate max-w-[100px]">{password.url || 'No Registry URL'}</span>
+                <span className="truncate max-w-[100px]">{password.url || 'No URL provided'}</span>
                 {password.url && <ExternalLink size={10} className="cursor-pointer hover:text-neo-blue transition-colors stroke-[2.5px]" onClick={() => window.open(password.url.startsWith('http') ? password.url : `https://${password.url}`, '_blank')} />}
               </div>
             </div>
@@ -54,7 +54,7 @@ const PasswordCard = ({ password, onEdit, onDelete }) => {
             </button>
             <button 
               onClick={() => {
-                if (window.confirm('Erase this record from the ledger?')) {
+                if (window.confirm('Delete this password permanently?')) {
                   onDelete(password.id);
                 }
               }}
@@ -67,7 +67,7 @@ const PasswordCard = ({ password, onEdit, onDelete }) => {
 
         <div className="space-y-5 relative z-10">
           <div className="space-y-1">
-            <label className="text-[9px] font-black text-ink uppercase tracking-[0.2em]">Archived Username</label>
+            <label className="text-[9px] font-black text-ink uppercase tracking-[0.2em]">Username</label>
             <div className="flex items-center justify-between group/field px-3 py-2 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212]">
               <p className="font-black text-ink truncate flex-1 uppercase tracking-wider text-xs">{password.username}</p>
               <button 
@@ -80,7 +80,7 @@ const PasswordCard = ({ password, onEdit, onDelete }) => {
           </div>
 
           <div className="space-y-1">
-            <label className="text-[9px] font-black text-ink uppercase tracking-[0.2em]">Encrypted Cipher</label>
+            <label className="text-[9px] font-black text-ink uppercase tracking-[0.2em]">Password</label>
             <div className="flex items-center justify-between group/field px-3 py-2 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212]">
               <div className="flex items-center gap-3 flex-1">
                 <p className="font-black tracking-[0.2em] text-ink text-xs">
