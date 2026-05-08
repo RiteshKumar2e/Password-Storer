@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useVault } from '../context/VaultContext';
 import { 
   Shield, User, Database, LogOut, ChevronRight, 
-  Trash2, ShieldCheck, Key, Lock
+  Trash2, ShieldCheck, Key, Lock, Edit2
 } from 'lucide-react';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
