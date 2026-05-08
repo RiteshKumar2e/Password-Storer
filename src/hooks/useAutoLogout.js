@@ -10,7 +10,7 @@ const useAutoLogout = (timeoutMs = 5 * 60 * 1000) => { // 5 minutes default
     if (user) {
       timerRef.current = setTimeout(() => {
         logout();
-        window.location.href = '/login';
+        window.location.href = '/';
       }, timeoutMs);
     }
   };
