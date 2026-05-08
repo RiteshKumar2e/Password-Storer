@@ -3,11 +3,11 @@ import { useAuth } from '../context/AuthContext';
 import { useVault } from '../context/VaultContext';
 import { 
   Shield, User, Database, LogOut, ChevronRight, 
-  Trash2, ShieldCheck, Key, Lock, Edit2
+  Trash2, ShieldCheck, Key, Lock, Pencil
 } from 'lucide-react';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Profile = () => {
   const { user, logout, updateUsername } = useAuth();
@@ -45,7 +45,7 @@ const Profile = () => {
               onClick={() => setIsEditModalOpen(true)}
               className="px-6 py-3 bg-white border border-slate-200 rounded-2xl font-black hover:bg-slate-50 transition-all shadow-sm active:scale-[0.98] flex items-center gap-2"
             >
-              <Edit2 size={18} className="text-primary-600" />
+              <Pencil size={18} className="text-primary-600" />
               Edit Profile
             </button>
           </motion.div>
@@ -58,7 +58,7 @@ const Profile = () => {
                    <User className="w-14 h-14" />
                 </div>
                 <div className="absolute inset-0 bg-primary-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Edit2 className="text-white" size={24} />
+                  <Pencil className="text-white" size={24} />
                 </div>
               </div>
               <div className="text-center md:text-left flex-1">

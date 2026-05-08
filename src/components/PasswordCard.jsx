@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Copy, ExternalLink, Eye, EyeOff, MoreVertical, 
-  Edit2, Trash2, Globe, Lock, ShieldCheck
+  Pencil, Trash2, Globe, Lock, ShieldCheck
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
@@ -56,7 +56,7 @@ const PasswordCard = ({ password, onEdit, onDelete }) => {
             onClick={() => onEdit(password)}
             className="p-2.5 hover:bg-slate-50 rounded-xl text-slate-400 hover:text-primary-600 transition-all"
           >
-            <Edit2 size={18} />
+            <Pencil size={18} />
           </button>
           <button 
             onClick={() => {

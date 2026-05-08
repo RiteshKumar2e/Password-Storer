@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useVault } from '../context/VaultContext';
 import { 
   Plus, Search, Shield, LayoutDashboard, User, Settings, 
-  LogOut, Menu, X, PlusCircle, Trash2, Edit2, Copy, 
+  LogOut, Menu, X, PlusCircle, Trash2, Pencil, Copy, 
   ExternalLink, Eye, EyeOff, Key
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
