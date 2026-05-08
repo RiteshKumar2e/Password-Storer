@@ -147,34 +147,7 @@ const Profile = () => {
               </div>
             </div>
 
-            {/* Warning Box */}
-            <div className="bg-neo-red/5 border-2 border-ink border-dashed p-8 relative overflow-hidden group">
-               <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700 pointer-events-none">
-                  <Trash2 size={120} className="text-neo-red" />
-               </div>
-               <div className="relative z-10">
-                  <div className="flex items-center gap-3 text-neo-red mb-4">
-                    <div className="p-2 bg-white border-2 border-ink shadow-[2px_2px_0px_#121212]">
-                      <Shield size={20} className="stroke-[2.5px]" />
-                    </div>
-                    <h3 className="font-black text-xl tracking-tighter uppercase italic">Expunge Records</h3>
-                  </div>
-                  <p className="text-ink/60 font-serif italic text-lg mb-8 max-w-xl leading-relaxed">
-                    "Wiping your local vault is permanent. All passwords, settings, and identity data will be destroyed instantly. This archival erasure cannot be reversed."
-                  </p>
-                  <button 
-                    onClick={() => {
-                      if (window.confirm('CRITICAL WARNING: This will permanently delete all your data. Are you absolutely sure?')) {
-                        localStorage.clear();
-                        window.location.href = '/';
-                      }
-                    }}
-                    className="px-8 py-4 bg-neo-red text-white border-2 border-ink font-black uppercase text-xs tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[6px_6px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
-                  >
-                    Destroy Vault Forever
-                  </button>
-               </div>
-            </div>
+
           </div>
         </div>
       </main>
