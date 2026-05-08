@@ -8,7 +8,6 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
-import Settings from './pages/Settings';
 import Audit from './pages/Audit';
 import NotFound from './pages/NotFound';
 
@@ -66,15 +65,6 @@ function App() {
           element={
             <ProtectedRoute>
               <Profile />
-            </ProtectedRoute>
-          } 
-        />
-
-        <Route 
-          path="/settings" 
-          element={
-            <ProtectedRoute>
-              <Settings />
             </ProtectedRoute>
           } 
         />

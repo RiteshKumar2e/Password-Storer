@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useVault } from '../context/VaultContext';
 import { 
-  Plus, Search, Shield, LayoutDashboard, User, Settings, 
+  Plus, Search, Shield, LayoutDashboard, User,
   LogOut, Menu, X, PlusCircle, Trash2, Pencil, Copy, 
   ExternalLink, Eye, EyeOff, Key
 } from 'lucide-react';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, User, Shield, LogOut, X, Settings, ShieldAlert } from 'lucide-react';
+import { LayoutDashboard, User, Shield, LogOut, X, ShieldAlert } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -16,7 +16,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   const navItems = [
     { name: 'Dashboard', icon: <LayoutDashboard size={20} />, path: '/dashboard' },
     { name: 'Security Audit', icon: <ShieldAlert size={20} />, path: '/audit' },
-    { name: 'Settings', icon: <Settings size={20} />, path: '/settings' },
     { name: 'Profile', icon: <User size={20} />, path: '/profile' },
   ];
 
