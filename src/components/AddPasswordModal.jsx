@@ -101,7 +101,7 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
                       type="text"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full pl-12 pr-4 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
+                      className="w-full pl-12 pr-4 py-3 bg-paper border-[3px] border-ink shadow-[4px_4px_0px_#121212] focus:shadow-[6px_6px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
                       placeholder="E.G. GOOGLE"
                       required
                     />
@@ -116,7 +116,7 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
                       type="text"
                       value={formData.url}
                       onChange={(e) => setFormData({...formData, url: e.target.value})}
-                      className="w-full pl-12 pr-4 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
+                      className="w-full pl-12 pr-4 py-3 bg-paper border-[3px] border-ink shadow-[4px_4px_0px_#121212] focus:shadow-[6px_6px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
                       placeholder="google.com"
                     />
                   </div>
@@ -131,7 +131,7 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
                     type="text"
                     value={formData.username}
                     onChange={(e) => setFormData({...formData, username: e.target.value})}
-                    className="w-full pl-12 pr-4 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
+                    className="w-full pl-12 pr-4 py-3 bg-paper border-[3px] border-ink shadow-[4px_4px_0px_#121212] focus:shadow-[6px_6px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
                     placeholder="yourname@email.com"
                     required
                   />
@@ -146,14 +146,14 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
                     type="text"
                     value={formData.password}
                     onChange={(e) => setFormData({...formData, password: e.target.value})}
-                    className="w-full pl-12 pr-16 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30 tracking-[0.2em]"
+                    className="w-full pl-12 pr-16 py-3 bg-paper border-[3px] border-ink shadow-[4px_4px_0px_#121212] focus:shadow-[6px_6px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30 tracking-[0.2em]"
                     placeholder="Password"
                     required
                   />
                   <button 
                     type="button"
                     onClick={handleGenerate}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 bg-neo-yellow border-2 border-ink hover:bg-neo-blue hover:text-white transition-all shadow-[1px_1px_0px_#121212]"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 bg-neo-yellow border-[3px] border-ink hover:bg-neo-blue hover:text-white transition-all shadow-[2px_2px_0px_#121212]"
                     title="Generate Strong Password"
                   >
                     <Zap size={18} className="stroke-[2.5px]" />
@@ -168,7 +168,7 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
                   <textarea 
                     value={formData.notes}
                     onChange={(e) => setFormData({...formData, notes: e.target.value})}
-                    className="w-full pl-12 pr-4 py-3 bg-paper border-2 border-ink shadow-[2px_2px_0px_#121212] focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-serif italic text-base text-ink placeholder:text-ink/30 min-h-[100px]"
+                    className="w-full pl-12 pr-4 py-3 bg-paper border-[3px] border-ink shadow-[4px_4px_0px_#121212] focus:shadow-[6px_6px_0px_#FFD93D] outline-none transition-all font-serif italic text-base text-ink placeholder:text-ink/30 min-h-[100px]"
                     placeholder="Additional details..."
                   />
                 </div>
@@ -178,13 +178,13 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
                 <button 
                   type="button"
                   onClick={onClose}
-                  className="flex-1 py-4 bg-white border-2 border-ink text-ink font-black uppercase text-sm tracking-widest hover:bg-paper transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
+                  className="flex-1 py-4 bg-white border-[3px] border-ink text-ink font-black uppercase text-sm tracking-widest hover:bg-paper transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit"
-                  className="flex-[2] py-4 bg-neo-green text-ink border-2 border-ink font-black text-lg uppercase tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[6px_6px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
+                  className="flex-[2] py-4 bg-neo-green text-ink border-[3px] border-ink font-black text-lg uppercase tracking-widest hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all shadow-[6px_6px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212]"
                 >
                   {editingPassword ? 'Update' : 'Save Password'}
                 </button>
