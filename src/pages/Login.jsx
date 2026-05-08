@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Shield, Lock, Eye, EyeOff } from 'lucide-react';
+import { Shield, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import '../styles/Auth.css';
@@ -20,7 +20,15 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 auth-container">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 auth-container relative">
+      <Link 
+        to="/" 
+        className="absolute top-8 left-8 flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-2xl font-black text-slate-600 hover:bg-slate-50 transition-all shadow-sm active:scale-[0.98] z-50 group"
+      >
+        <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+        Back to Home
+      </Link>
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-100/40 blur-[100px] rounded-full"></div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-100/40 blur-[100px] rounded-full"></div>
