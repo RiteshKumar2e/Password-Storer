@@ -1,16 +1,123 @@
-# React + Vite
+# Password Storer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A secure, user-friendly password management application built with React and Vite. Store, manage, and audit your passwords with encrypted storage and advanced security features.
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **User Authentication**: Secure login and registration system
+- **Password Vault**: Store and organize passwords securely
+- **Encryption**: End-to-end encryption for stored passwords
+- **Audit Trail**: Complete audit logs for security tracking
+- **Auto Logout**: Automatic session timeout for security
+- **User Profile**: Manage your account settings
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 18+ with Vite
+- **State Management**: Context API
+- **Security**: Encryption utilities for password protection
+- **Build Tool**: Vite with HMR
+- **Linting**: ESLint
 
-## Expanding the ESLint configuration
+## 📋 Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js (v14 or higher)
+- npm or yarn package manager
+
+## 🚀 Getting Started
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd Password\ Storer
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+The application will open at `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── AddPasswordModal.jsx
+│   ├── Navbar.jsx
+│   ├── PasswordCard.jsx
+│   └── Sidebar.jsx
+├── context/            # React Context for state management
+│   ├── AuthContext.jsx
+│   └── VaultContext.jsx
+├── hooks/              # Custom React hooks
+│   └── useAutoLogout.js
+├── pages/              # Application pages
+│   ├── Audit.jsx
+│   ├── Dashboard.jsx
+│   ├── Landing.jsx
+│   ├── Login.jsx
+│   ├── NotFound.jsx
+│   ├── Profile.jsx
+│   └── Register.jsx
+├── styles/             # CSS stylesheets
+├── utils/              # Utility functions
+│   └── crypto.js       # Encryption utilities
+└── App.jsx
+```
+
+## 🔐 Security Features
+
+- Password encryption using cryptographic utilities
+- Session-based authentication
+- Automatic logout on inactivity
+- Audit logging for all password operations
+- Secure password storage
+
+## 📖 Usage
+
+1. **Create Account**: Register with your email and password
+2. **Login**: Access your secure vault
+3. **Add Passwords**: Store passwords for your accounts
+4. **View Audit**: Track all password access and changes
+5. **Manage Profile**: Update your account settings
+
+## 🔗 Available Scripts
+
+- `npm run dev` - Start development server with HMR
+- `npm run build` - Create optimized production build
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 💡 Contributing
+
+Contributions are welcome! Feel free to submit issues and pull requests.
+
+---
+
+**Note**: Keep your master password safe. If you forget it, your encrypted passwords cannot be recovered.
