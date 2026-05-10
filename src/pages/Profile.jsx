@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useVault } from '../context/VaultContext';
 import { 
@@ -10,11 +11,17 @@ import Navbar from '../components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Profile = () => {
+  const navigate = useNavigate();
   const { user, logout, updateUsername } = useAuth();
   const { passwords } = useVault();
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
   const [newUsername, setNewUsername] = React.useState(user?.username || '');
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
@@ -88,7 +95,7 @@ const Profile = () => {
                 </div>
               </div>
               <button 
-                onClick={logout}
+                onClick={handleLogout}
                 className="px-6 py-3 bg-white border-2 border-ink text-ink font-black uppercase text-xs tracking-widest hover:bg-neo-red hover:text-white transition-all shadow-[4px_4px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] w-full md:w-auto mt-6 md:mt-0"
               >
                 Logout
