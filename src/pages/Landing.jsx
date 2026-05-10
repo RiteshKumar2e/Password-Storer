@@ -41,7 +41,7 @@ const Landing = () => {
           <p className="text-lg md:text-xl text-ink/70 font-serif italic max-w-2xl mx-auto mb-12 leading-relaxed">
             "A secure vault for your digital passwords. Local-first, private, and built for simplicity and security."
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center\">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center">
             <Link to="/register" className="px-10 py-4 bg-neo-green text-ink border-2 border-ink font-black text-lg uppercase tracking-widest hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all shadow-[6px_6px_0px_#121212] flex items-center gap-3">
               Get Started <ArrowRight className="stroke-[2.5px]" />
             </Link>
@@ -56,7 +56,7 @@ const Landing = () => {
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="mt-12 sm:mt-32 relative mx-auto max-w-5xl brutalist-card animate-float p-1 bg-ink\">
+          className="mt-12 sm:mt-32 relative mx-auto max-w-5xl brutalist-card animate-float p-1 bg-ink"
         >
           <div className="bg-paper aspect-video p-4 md:p-12 flex items-center justify-center border-4 border-ink">
              <div className="w-full h-full bg-white border-4 border-ink flex flex-col items-center justify-center p-4 md:p-8 relative">

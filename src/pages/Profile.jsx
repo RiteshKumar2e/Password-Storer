@@ -38,8 +38,8 @@ const Profile = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            <div className="mb-6 sm:mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-4 border-ink pb-6 sm:pb-8 relative">
           >
+            <div className="mb-6 sm:mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-4 border-ink pb-6 sm:pb-8 relative">
             {/* Secure Badge */}
             <div className="absolute -top-4 -right-4 border-4 border-neo-green px-4 py-2 rotate-[15deg] opacity-20 pointer-events-none hidden md:block">
               <span className="text-2xl font-black text-neo-green uppercase tracking-widest">Secure</span>
@@ -59,6 +59,7 @@ const Profile = () => {
               <Pencil size={16} className="text-ink stroke-[2.5px]" />
               Edit Profile
             </button>
+            </div>
           </motion.div>
 
           <div className="space-y-10">
