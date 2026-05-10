@@ -68,7 +68,7 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-lg bg-paper border-[3px] border-ink shadow-[12px_12px_0px_0px_#121212] overflow-hidden"
+          className="relative w-full max-w-lg bg-paper border-2 sm:border-[3px] border-ink shadow-[6px_6px_0px_0px_#121212] sm:shadow-[12px_12px_0px_0px_#121212] overflow-hidden"
         >
           {/* Close Button - Absolute Top Right */}
           <button 
@@ -78,21 +78,21 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
             <X size={20} className="group-hover:rotate-90 transition-transform stroke-[3px]" />
           </button>
 
-          <div className="p-10 relative bg-[url('/grid.png')] bg-repeat">
-            <div className="flex justify-between items-start mb-10 border-b-[3px] border-ink pb-6">
+          <div className="p-4 sm:p-6 md:p-10 relative bg-[url('/grid.png')] bg-repeat">
+            <div className="flex justify-between items-start mb-6 sm:mb-10 border-b-2 sm:border-b-[3px] border-ink pb-4 sm:pb-6">
               <div className="flex items-center gap-5">
                 <div className="bg-neo-yellow p-4 border-[3px] border-ink shadow-[4px_4px_0px_#121212]">
                   <PlusCircle className="text-ink w-7 h-7 stroke-[3px]" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-black tracking-tighter text-ink italic">{editingPassword ? 'Update Password' : 'Add New Password'}</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tighter text-ink italic">{editingPassword ? 'Update Password' : 'Add New Password'}</h2>
                   <p className="text-ink/50 font-serif italic text-sm mt-1">Secure Entry v1.4</p>
                 </div>
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-ink uppercase tracking-[0.2em]">Site Name</label>
                   <div className="relative">
@@ -174,7 +174,7 @@ const AddPasswordModal = ({ isOpen, onClose, editingPassword }) => {
                 </div>
               </div>
 
-              <div className="pt-4 flex gap-4">
+              <div className="pt-2 sm:pt-4 flex gap-2 sm:gap-4">
                 <button 
                   type="button"
                   onClick={onClose}

@@ -71,3 +71,40 @@
   box-shadow: 1px 1px 0px 0px #6BCB77;
 }
 
+/* Mobile responsive shadows and spacing */
+@media (max-width: 768px) {
+  .password-card-glow {
+    box-shadow: 3px 3px 0px 0px #121212;
+  }
+  
+  .password-card-glow:hover {
+    box-shadow: 6px 6px 0px 0px #4D96FF, 6px 6px 0px 2px #121212;
+  }
+  
+  .search-input {
+    box-shadow: 2px 2px 0px 0px #121212;
+  }
+  
+  .search-input:focus {
+    box-shadow: 3px 3px 0px 0px #FFD93D, 3px 3px 0px 2px #121212;
+  }
+}
+
+@media (max-width: 640px) {
+  .password-card-glow {
+    box-shadow: 2px 2px 0px 0px #121212;
+  }
+  
+  .password-card-glow:hover {
+    box-shadow: 4px 4px 0px 0px #4D96FF, 4px 4px 0px 2px #121212;
+  }
+  
+  .search-input {
+    box-shadow: 1px 1px 0px 0px #121212;
+  }
+  
+  .search-input:focus {
+    box-shadow: 2px 2px 0px 0px #FFD93D, 2px 2px 0px 1px #121212;
+  }
+}
+

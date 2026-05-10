@@ -26,7 +26,7 @@ const PasswordCard = ({ password, onEdit, onDelete }) => {
       {/* Decorative Tape Effect */}
       <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-neo-yellow/40 backdrop-blur-sm border-x border-ink/20 rotate-[-2deg] z-20 pointer-events-none" />
 
-      <div className="bg-white border-2 border-ink p-5 shadow-[4px_4px_0px_0px_#121212] transition-all flex flex-col h-full relative overflow-hidden">
+      <div className="bg-white border-2 border-ink p-3 sm:p-5 shadow-[4px_4px_0px_0px_#121212] transition-all flex flex-col h-full relative overflow-hidden">
         {/* Background Paper Texture */}
         <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
 
@@ -37,7 +37,7 @@ const PasswordCard = ({ password, onEdit, onDelete }) => {
             </div>
             <div>
               <p className="text-[8px] font-black uppercase tracking-[0.3em] text-ink/30 mb-0.5">Record {password.id.slice(-4)}</p>
-              <h3 className="text-xl font-black tracking-tighter uppercase italic truncate max-w-[150px]">{password.name}</h3>
+              <h3 className="text-lg sm:text-xl font-black tracking-tighter uppercase italic truncate max-w-[150px]">{password.name}</h3>
               <div className="flex items-center gap-1 text-ink/40 text-[9px] font-black uppercase tracking-widest mt-0.5">
                 <span className="truncate max-w-[100px]">{password.url || 'No URL provided'}</span>
                 {password.url && <ExternalLink size={10} className="cursor-pointer hover:text-neo-blue transition-colors stroke-[2.5px]" onClick={() => window.open(password.url.startsWith('http') ? password.url : `https://${password.url}`, '_blank')} />}

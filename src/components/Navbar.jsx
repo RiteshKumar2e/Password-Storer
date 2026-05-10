@@ -6,7 +6,7 @@ const Navbar = ({ setIsSidebarOpen, searchTerm, setSearchTerm }) => {
   const { user } = useAuth();
 
   return (
-    <header className="sticky top-0 z-30 px-6 py-4 flex items-center justify-between bg-paper border-b-2 border-ink shadow-[0_2px_0px_#121212]">
+    <header className="sticky top-0 z-30 px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-paper border-b-2 border-ink shadow-[0_2px_0px_#121212]">
       <div className="flex items-center gap-4 flex-1">
         <button 
           onClick={() => setIsSidebarOpen(true)}

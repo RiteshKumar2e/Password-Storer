@@ -34,8 +34,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         )}
       </AnimatePresence>
 
-      <aside className={`fixed inset-y-0 left-0 w-64 bg-paper-dark border-r-2 border-ink z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out flex flex-col book-spine shadow-[4px_0_15px_rgba(0,0,0,0.1)]`}>
-        <div className="p-6">
+      <aside className={`fixed inset-y-0 left-0 w-56 sm:w-64 bg-paper-dark border-r-2 border-ink z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out flex flex-col book-spine shadow-[4px_0_15px_rgba(0,0,0,0.1)]`}>
+        <div className="p-4 sm:p-6">
           <div className="flex items-center justify-between mb-8 border-b-2 border-ink/10 pb-6">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">

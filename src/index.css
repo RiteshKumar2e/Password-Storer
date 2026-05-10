@@ -98,6 +98,21 @@ body::before {
   cursor: pointer;
 }
 
+/* Mobile Responsive Utilities */
+@media (max-width: 640px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; }
+  
+  p, span, div:not(.ui-element) {
+    font-size: 0.875rem;
+  }
+  
+  button {
+    font-size: 0.75rem !important;
+  }
+}
+
 .brutalist-button:hover {
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0px 0px #121212;

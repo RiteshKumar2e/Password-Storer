@@ -50,3 +50,11 @@
   box-shadow: 1px 1px 0px 0px #121212;
 }
 
+/* Mobile responsive for Auth cards */
+@media (max-width: 640px) {
+  .auth-card {
+    border: 3px solid #121212;
+    box-shadow: 6px 6px 0px 0px #121212;
+  }
+}
+

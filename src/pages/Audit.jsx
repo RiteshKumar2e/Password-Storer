@@ -63,14 +63,14 @@ const Audit = () => {
       <main className="flex-1 flex flex-col min-w-0 border-l-2 border-ink">
         <Navbar setIsSidebarOpen={setIsSidebarOpen} searchTerm="" setSearchTerm={() => {}} />
 
-        <div className="p-6 md:p-10 max-w-7xl mx-auto w-full">
-          <div className="mb-10">
+        <div className="p-3 sm:p-6 md:p-10 max-w-7xl mx-auto w-full\">
+          <div className="mb-6 sm:mb-10\">
             <h1 className="text-4xl font-black mb-1 tracking-tighter uppercase italic">Security Check</h1>
             <p className="text-ink/60 font-serif italic text-lg">"Scanning for potential security risks in your passwords."</p>
           </div>
 
           {/* Security Score Header */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8 mb-10\">
             <div className="lg:col-span-2 bg-white border-2 border-ink p-8 shadow-[6px_6px_0px_0px_#121212] flex flex-col md:flex-row items-center gap-10 relative overflow-hidden">
               <div className="absolute top-0 right-0 opacity-[0.03] pointer-events-none p-12">
                 <Shield size={200} />
@@ -124,7 +124,7 @@ const Audit = () => {
           </div>
 
           {/* Audit Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8\">
             {/* Weak Passwords */}
             <div className="bg-white border-2 border-ink p-6 shadow-[4px_4px_0px_0px_#121212]">
               <div className="flex items-center justify-between mb-8 border-b-2 border-ink pb-4">

@@ -50,7 +50,7 @@ const Dashboard = () => {
         <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/5 to-transparent pointer-events-none z-10" />
 
         {/* Dashboard Content */}
-        <div className="p-6 md:p-10 max-w-7xl mx-auto w-full relative">
+        <div className="p-3 sm:p-6 md:p-10 max-w-7xl mx-auto w-full relative">
           <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end border-b-2 border-ink pb-4 gap-4">
             <div>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-1">
@@ -73,7 +73,7 @@ const Dashboard = () => {
             </button>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 mb-10">
             {[
               { label: 'Total Passwords', value: passwords.length, icon: <Key />, color: 'bg-neo-blue' },
               { label: 'Security Score', value: '94%', icon: <Shield />, color: 'bg-neo-green' },
@@ -105,7 +105,7 @@ const Dashboard = () => {
                 <div className="animate-spin h-12 w-12 border-4 border-neo-blue border-t-ink"></div>
               </div>
             ) : filteredPasswords.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                 <AnimatePresence mode='popLayout'>
                   {filteredPasswords.map((password) => (
                     <PasswordCard 

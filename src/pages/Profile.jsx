@@ -34,11 +34,11 @@ const Profile = () => {
         {/* Book Gutter Shadow */}
         <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/5 to-transparent pointer-events-none z-10" />
 
-        <div className="p-6 md:p-10 max-w-4xl mx-auto w-full relative">
+        <div className="p-3 sm:p-6 md:p-10 max-w-4xl mx-auto w-full relative">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-4 border-ink pb-8 relative"
+            <div className="mb-6 sm:mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-4 border-ink pb-6 sm:pb-8 relative">
           >
             {/* Secure Badge */}
             <div className="absolute -top-4 -right-4 border-4 border-neo-green px-4 py-2 rotate-[15deg] opacity-20 pointer-events-none hidden md:block">
