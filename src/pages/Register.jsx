@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import '../styles/Auth.css';
 
 const Register = () => {
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -15,8 +16,12 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    if (password.length < 8) {
-      toast.error('Master password must be at least 8 characters.');
+    if (!name.trim()) {
+      toast.error('Please enter your name.');
+      return;
+    }
+    if (!password) {
+      toast.error('Please enter a password.');
       return;
     }
     if (password !== confirmPassword) {
@@ -24,7 +29,7 @@ const Register = () => {
       return;
     }
     
-    if (register(password)) {
+    if (register(password, name.trim())) {
       navigate('/dashboard');
     }
   };
@@ -57,6 +62,21 @@ const Register = () => {
 
         <form onSubmit={handleRegister} className="space-y-6">
           <div className="space-y-2">
+            <label className="text-[10px] font-black ml-1 text-ink uppercase tracking-[0.2em]">Full Name</label>
+            <div className="relative">
+              <Shield className="absolute left-4 top-1/2 -translate-y-1/2 text-ink w-5 h-5 stroke-[2.5px]" />
+              <input 
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full pl-12 pr-4 py-4 bg-paper border-2 border-ink focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
+                placeholder="ENTER YOUR NAME"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="space-y-2">
             <label className="text-[10px] font-black ml-1 text-ink uppercase tracking-[0.2em]">Master Password</label>
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-ink w-5 h-5 stroke-[2.5px]" />
@@ -65,7 +85,7 @@ const Register = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full pl-12 pr-12 py-4 bg-paper border-2 border-ink focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
-                placeholder="MIN. 8 CHARACTERS"
+                placeholder="ENTER PASSWORD"
                 required
               />
               <button 
@@ -86,10 +106,17 @@ const Register = () => {
                 type={showPassword ? "text" : "password"}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-paper border-2 border-ink focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
+                className="w-full pl-12 pr-12 py-4 bg-paper border-2 border-ink focus:shadow-[4px_4px_0px_#FFD93D] outline-none transition-all font-black text-xs text-ink placeholder:text-ink/30"
                 placeholder="REPEAT PASSWORD"
                 required
               />
+              <button 
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-ink hover:text-neo-blue transition-colors"
+              >
+                {showPassword ? <EyeOff size={20} className="stroke-[2.5px]" /> : <Eye size={20} className="stroke-[2.5px]" />}
+              </button>
             </div>
           </div>
 

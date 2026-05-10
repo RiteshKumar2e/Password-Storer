@@ -17,10 +17,10 @@ export const AuthProvider = ({ children }) => {
     setIsInitialized(true);
   }, []);
 
-  const register = (masterPassword) => {
+  const register = (masterPassword, username = 'User') => {
     const userId = 'user_' + Math.random().toString(36).substr(2, 9);
     const masterHash = hashPassword(masterPassword);
-    const newUser = { id: userId, masterHash, username: 'New User' };
+    const newUser = { id: userId, masterHash, username: username };
     localStorage.setItem('securevault_user', JSON.stringify(newUser));
     // Initialize empty vault
     localStorage.setItem('securevault_vault', '');
