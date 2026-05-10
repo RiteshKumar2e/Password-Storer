@@ -105,7 +105,9 @@ const Landing = () => {
            <span className="font-black text-3xl tracking-tighter uppercase">SecureVault</span>
         </div>
         <p className="text-ink font-black tracking-widest uppercase mb-4">The Library of Privacy</p>
-        <p className="text-ink/50 font-serif italic">© 2024 SecureVault. All rights reserved. Registered in the Analog Blockchain.</p>
+        <p className="text-ink/50 font-serif italic mb-3">© 2026 SecureVault. All rights reserved.</p>
+        <p className="text-ink font-black tracking-widest uppercase mb-2">Designed by Ritesh</p>
+        <p className="text-ink/60 font-serif italic">with love ❤️ and heart</p>
       </footer>
     </div>
 
